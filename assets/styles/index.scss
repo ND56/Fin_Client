@@ -1,2 +1,29 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~jquery-toast-plugin/src/jquery.toast.css';
+
+// ----------------- Colors & Variables -----------------------
+
+// ----------------- Global -----------------------------------
+
+// ----------------- Landing Page -----------------------------
+
+.landing-wrapper {
+  // setting to height and width of the viewport
+  height: 100vh;
+  text-align: center;
+  width: 100vw;
+  background-color: black;
+}
+
+.landing-header {
+  background-color: black;
+  color: white;
+  font-size: 23em;
+  padding-top: 11%;
+  margin: 0;
+  font-family: 'Gugi', cursive;
+  // font-family: 'Righteous', cursive;
+  // font-family: 'Poiret One', cursive;
+  // font-family: 'Libre Barcode 39 Text', cursive;
+}
