@@ -6,6 +6,40 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // ----------------- Global -----------------------------------
 
+.modal-header {
+  border-bottom: 1px solid black;
+}
+
+.modal-footer {
+  border-top: 1px solid black;
+}
+
+.form-control {
+  border: 1px solid black;
+}
+
+.modal-button {
+  border-color: black;
+  color: black;
+}
+
+input {
+  color: black !important;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black !important;
+    opacity: 1; /* Firefox */
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black !important;
+}
+
+input::-ms-input-placeholder { /* Microsoft Edge */
+    color: black !important;
+}
+
 // ----------------- Landing Page -----------------------------
 
 .landing-wrapper {
@@ -17,7 +51,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .landing-header {
-  background-color: black;
   color: white;
   font-size: 23em;
   padding-top: 11%;
@@ -26,4 +59,78 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   // font-family: 'Righteous', cursive;
   // font-family: 'Poiret One', cursive;
   // font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+.proceed-button:focus {
+  outline: none;
+}
+
+.register-toggle {
+  background-color: black;
+  color: white;
+}
+
+// ----------------- Other View -------------------------------
+
+// ----------------- Other View -------------------------------
+
+// ----------------- Other View -------------------------------
+
+// ----------------- Other View -------------------------------
+
+// ----------------- Media Queries ----------------------------
+
+// ----------------- Register Input Field Changes -------------
+
+#inputEmail2,
+#inputPassword2,
+#inputPassword3 {
+  color: white !important;
+  background-color: black
+}
+
+#inputEmail2::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white !important;
+  opacity: 1; /* Firefox */
+}
+
+#inputEmail2:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white !important;
+}
+
+#inputEmail2::-ms-input-placeholder { /* Microsoft Edge */
+  color: white !important;
+}
+
+#inputPassword2::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white !important;
+  opacity: 1; /* Firefox */
+}
+
+#inputPassword2:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white !important;
+}
+
+#inputPassword2::-ms-input-placeholder { /* Microsoft Edge */
+  color: white !important;
+}
+
+#inputPassword3::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white !important;
+  opacity: 1; /* Firefox */
+}
+
+#inputPassword3:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white !important;
+}
+
+#inputPassword3::-ms-input-placeholder { /* Microsoft Edge */
+  color: white !important;
+}
+
+// ----------------- Animation-Related ------------------
+
+.animation-delay {
+  -webkit-animation-delay: 1.0s;
+  animation-delay: 1.0s;
 }

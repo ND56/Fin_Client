@@ -13,6 +13,8 @@
       <!-- Font-Awesome -->
       <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
       <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+      <!-- animate.css -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
       <!-- Scripts -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -20,12 +22,105 @@
 
     <body>
 
-      <!-- Landing Page - Start -->
+      <!-- Landing Page - Start - **************************** -->
       <div class="landing-wrapper" id="landing-wrapper">
-        <h1 class="landing-header">Fin</h1>
-        <button class="proceed-button" id="proceed-button">Proceed</button>
+        <h1 class="landing-header" id="landing-header">Fin</h1>
+        <button class="proceed-button animation-delay animated bounceInLeft" id="proceed-button" data-toggle="modal" data-target="#log-in-modal">Proceed</button>
       </div>
-      <!-- Landing Page - End -->
+      <!-- Landing Page - End - ****************************** -->
+
+      <!-- Other View - Start - ****************************** -->
+      <!-- Other View - End - ******************************** -->
+
+      <!-- Other View - Start - ****************************** -->
+      <!-- Other View - End - ******************************** -->
+
+      <!-- Other View - Start - ****************************** -->
+      <!-- Other View - End - ******************************** -->
+
+      <!-- Other View - Start - ****************************** -->
+      <!-- Other View - End - ******************************** -->
+
+      <!-- Modals - Start - ********************************** -->
+
+      <!-- Log-In Modal - Start -->
+      <div class="modal fade" id="log-in-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content log-in-modal-content" id="log-in-modal-content">
+            <!-- Log-In Content -->
+            <div id="log-in-content-wrapper">
+              <!-- Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Log In</h4>
+              </div>
+              <!-- Start form for log-in modal-->
+              <div class="modal-body">
+                <form class="form-horizontal" id="log-in-form">
+                    <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="text" class="form-control" id="inputEmail1" name="credentials[email]" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="password" class="form-control" id="inputPassword1" name="credentials[password]" placeholder="Password">
+                    </div>
+                  </div>
+              </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-default modal-button register-toggle" id="log-in-modal-register-toggle-button">Register?</button>
+                      <button type="submit" class="btn btn-default modal-button" id="log-in-modal-submit-button">Enter</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+              <!-- Register Content -->
+              <div id="register-content-wrapper">
+                <!-- Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Register</h4>
+                </div>
+                <!-- Start form for log-in modal-->
+                <div class="modal-body">
+                  <form class="form-horizontal" id="register-form">
+                      <div class="form-group">
+                      <div class="input-div col-sm-12">
+                        <input type="text" class="form-control" id="inputEmail2" name="credentials[email]" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-div col-sm-12">
+                        <input type="password" class="form-control" id="inputPassword2" name="credentials[password]" placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-div col-sm-12">
+                        <input type="password" class="form-control" id="inputPassword3" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      </div>
+                    </div>
+                </div>
+                  <!-- Footer -->
+                  <div class="modal-footer">
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button class="btn btn-default modal-button register-toggle" id="register-modal-log-in-toggle-button">Log In?</button>
+                        <button type="submit" class="btn btn-default modal-button" id="register-submit-button">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              <!-- End Content -->
+            </div>
+          </div>
+        </div>
+      <!-- Log-In Modal - End -->
+
+      <!-- Modals - End - ************************************ -->
 
     </body>
 
