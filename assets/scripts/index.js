@@ -19,7 +19,6 @@ $(() => {
   $('#register-modal-log-in-toggle-button').on('click', events.onToggleRegister)
   $('#register-form').on('submit', events.onRegister)
   $('#log-in-form').on('submit', events.onLogIn)
-  $('#landing-header').on('mouseenter', ui.onHoverLandingHeader)
 
   // general event handlers
   socket.on('connect', function () {

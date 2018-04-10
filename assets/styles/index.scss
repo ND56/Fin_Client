@@ -6,6 +6,11 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // ----------------- Global -----------------------------------
 
+body {
+  // font-family: 'Tajawal', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .modal-header {
   border-bottom: 1px solid black;
 }
@@ -19,8 +24,14 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .modal-button {
-  border-color: black;
+  border: 1px solid black;
   color: black;
+  background-color: white;
+}
+
+.modal-button:hover {
+  color: white;
+  background-color: black;
 }
 
 input {
@@ -47,11 +58,11 @@ input::-ms-input-placeholder { /* Microsoft Edge */
   height: 100vh;
   text-align: center;
   width: 100vw;
-  background-color: black;
+  background-color: white;
 }
 
 .landing-header {
-  color: white;
+  color: black;
   font-size: 23em;
   padding-top: 11%;
   margin: 0;
@@ -61,6 +72,20 @@ input::-ms-input-placeholder { /* Microsoft Edge */
   // font-family: 'Libre Barcode 39 Text', cursive;
 }
 
+.proceed-button {
+  font-size: 1em;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: .5%;
+}
+
+.proceed-button:hover {
+  color: white;
+  background-color: black;
+}
+
 .proceed-button:focus {
   outline: none;
 }
@@ -68,9 +93,16 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 .register-toggle {
   background-color: black;
   color: white;
+  border: 1px solid black;
 }
 
-// ----------------- Other View -------------------------------
+.register-toggle:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+// ----------------- Chat View --------------------------------
 
 // ----------------- Other View -------------------------------
 
@@ -132,5 +164,5 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 
 .animation-delay {
   -webkit-animation-delay: 1.0s;
-  animation-delay: 1.0s;
+  animation-delay: 1.25s;
 }

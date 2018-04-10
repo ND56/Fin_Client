@@ -16,6 +16,18 @@ const registerUser = function (registerData) {
   })
 }
 
+const logIn = function (data) {
+  return $.ajax({
+    url: apiUrl + '/sign-in',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json'
+    },
+    data
+  })
+}
+
 module.exports = {
-  registerUser
+  registerUser,
+  logIn
 }

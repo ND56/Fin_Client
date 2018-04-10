@@ -38,7 +38,10 @@ const onRegister = function (event) {
 
 const onLogIn = function (event) {
   event.preventDefault()
-  console.log('Button Works')
+  const logInData = getFormFields(event.target)
+  api.logIn(logInData)
+    .then(ui.logInSuccess)
+    .catch(ui.logInFailure)
 }
 
 module.exports = {
