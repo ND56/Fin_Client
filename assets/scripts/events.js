@@ -7,15 +7,6 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const store = require('./store.js')
 
-const socketEmit = function (socket) {
-  socket.emit('greeting', 'This is an effort at modularizing')
-}
-
-const socketReceive = function (message) {
-  console.log('modularize worked!')
-  console.log(message)
-}
-
 // toggles log-in modal to have log-in or register fields
 const onToggleRegister = function (event) {
   event.preventDefault()
@@ -94,6 +85,24 @@ const onEditProfile = (event) => {
     .catch(ui.editProfileFailure)
 }
 
+const submitMessage = (event, socket) => {
+  event.preventDefault()
+  const userMessage = $('#chatInput').val()
+  // append message to the DOM
+  ui.displayMessage(userMessage)
+  // send the message to the API
+  socket.emit('message', userMessage)
+}
+
+const socketEmit = function (socket) {
+  socket.emit('greeting', 'This is an effort at modularizing')
+}
+
+const socketReceive = function (message) {
+  console.log(message)
+  ui.displayMessage(message)
+}
+
 module.exports = {
   socketEmit,
   socketReceive,
@@ -104,5 +113,6 @@ module.exports = {
   onLogOut,
   onChangePwd,
   onDeleteProfile,
-  onEditProfile
+  onEditProfile,
+  submitMessage
 }

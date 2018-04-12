@@ -37,12 +37,19 @@ $(() => {
   $('#profile-li').on('click', ui.requestEditProfileModal)
   $('#edit-profile-delete').on('click', events.onDeleteProfile)
   $('#profile-edit-form').on('submit', events.onEditProfile)
+  // pass the socket so the message can be emitted
+  $('#chatInputForm').on('submit', function (event) {
+    events.submitMessage(event, socket)
+  })
 
-  // general event handlers
+  // incoming web socket handlers
   socket.on('connect', function () {
     events.socketEmit(socket)
   })
   socket.on('greeting', function (message) {
+    events.socketReceive(message)
+  })
+  socket.on('message', function (message) {
     events.socketReceive(message)
   })
 

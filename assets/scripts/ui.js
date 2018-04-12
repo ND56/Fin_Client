@@ -203,6 +203,13 @@ const editProfileFailure = (error) => {
   }
 }
 
+const displayMessage = (message) => {
+  // append to DOM
+  $('#messagesUL').append($('<li>').text(message))
+  // clear form
+  $('#chatInput').val('')
+}
+
 module.exports = {
   registerSuccess,
   registerFailure,
@@ -219,5 +226,6 @@ module.exports = {
   deleteProfileSuccess,
   deleteProfileFailure,
   editProfileSuccess,
-  editProfileFailure
+  editProfileFailure,
+  displayMessage
 }

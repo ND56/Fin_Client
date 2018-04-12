@@ -179,21 +179,22 @@ footer {
 .messages-wrapper {
   height: 72vh;
   margin-bottom: 2vh;
-  border: 1px solid black;
+  border: 4px solid black;
   overflow: auto;
   border-radius: 10px;
+  padding: 0;
 }
 
 .chat-input {
   height: 5vh;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 4px solid black;
 }
 
 .chat-input-button {
   height: 5vh;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 4px solid black;
   background-color: $darker-gray;
   color: white;
 }
@@ -214,15 +215,19 @@ button:focus {
 .messages-ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 3px;
 }
 
 .messages-ul li {
   padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+  margin-bottom: 3px;
 }
 
 .messages-ul li:nth-child(odd) {
-  background: #eee;
+  background: $dark-gray;
+  color: white;
 }
 
 #chatInput {
