@@ -4,6 +4,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 // ----------------- Colors & Variables -----------------------
 
+$dark-gray: #7F7F7F;
+$darker-gray: #686868;
+
 // ----------------- Global -----------------------------------
 
 body {
@@ -13,10 +16,13 @@ body {
 
 .modal-header {
   border-bottom: 1px solid black;
+  background-color: $darker-gray;
+  color: white;
 }
 
 .modal-footer {
   border-top: 1px solid black;
+  background-color: $darker-gray;
 }
 
 .form-control {
@@ -51,6 +57,57 @@ input::-ms-input-placeholder { /* Microsoft Edge */
     color: black !important;
 }
 
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 8%;
+  width: 100%;
+  background-color: black;
+}
+
+.navbar {
+  background-color: black;
+  border-radius: 0;
+  border: none;
+}
+
+.navbar-brand {
+  font-family: 'Gugi', cursive;
+  font-size: 2em;
+  color: white !important;
+}
+
+#user-email-dropdown {
+  color: white;
+}
+
+.dropdown-toggle {
+  color: white !important;
+}
+
+.dropdown-toggle:focus {
+  background-color: $dark-gray !important;
+  color: white !important;
+}
+
+.drop-toggle:hover {
+  background-color: $dark-gray !important;
+  color: white !important;
+}
+
+.open a:focus {
+  background-color: $dark-gray !important;
+}
+
+.open a:hover {
+  background-color: $dark-gray !important;
+  color: white !important;
+}
+
+.navbar-default .navbar-nav > .open > a {
+  background-color: $dark-gray !important;
+}
+
 // ----------------- Landing Page -----------------------------
 
 .landing-wrapper {
@@ -83,7 +140,7 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 
 .proceed-button:hover {
   color: white;
-  background-color: black;
+  background-color: $darker-gray;
 }
 
 .proceed-button:focus {
@@ -104,6 +161,11 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 
 // ----------------- Chat View --------------------------------
 
+.chat-view-wrapper {
+  height: 100vh;
+  width: 100vw;
+}
+
 // ----------------- Other View -------------------------------
 
 // ----------------- Other View -------------------------------
@@ -111,54 +173,6 @@ input::-ms-input-placeholder { /* Microsoft Edge */
 // ----------------- Other View -------------------------------
 
 // ----------------- Media Queries ----------------------------
-
-// ----------------- Register Input Field Changes -------------
-
-#inputEmail2,
-#inputPassword2,
-#inputPassword3 {
-  color: white !important;
-  background-color: black
-}
-
-#inputEmail2::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white !important;
-  opacity: 1; /* Firefox */
-}
-
-#inputEmail2:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: white !important;
-}
-
-#inputEmail2::-ms-input-placeholder { /* Microsoft Edge */
-  color: white !important;
-}
-
-#inputPassword2::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white !important;
-  opacity: 1; /* Firefox */
-}
-
-#inputPassword2:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: white !important;
-}
-
-#inputPassword2::-ms-input-placeholder { /* Microsoft Edge */
-  color: white !important;
-}
-
-#inputPassword3::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white !important;
-  opacity: 1; /* Firefox */
-}
-
-#inputPassword3:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: white !important;
-}
-
-#inputPassword3::-ms-input-placeholder { /* Microsoft Edge */
-  color: white !important;
-}
 
 // ----------------- Animation-Related ------------------
 

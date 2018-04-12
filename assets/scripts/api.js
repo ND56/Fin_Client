@@ -27,7 +27,57 @@ const logIn = function (data) {
   })
 }
 
+const createProfile = function (data) {
+  return $.ajax({
+    url: apiUrl + '/profiles',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const logOut = () => {
+  return $.ajax({
+    url: apiUrl + '/sign-out/' + store.user._id,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const changePwd = function (data) {
+  return $.ajax({
+    url: apiUrl + '/change-password/' + store.user._id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const findProfile = function (data) {
+  return $.ajax({
+    url: apiUrl + '/profiles/' + 'find-by-user',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   registerUser,
-  logIn
+  logIn,
+  createProfile,
+  logOut,
+  changePwd,
+  findProfile
 }

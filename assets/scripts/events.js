@@ -5,6 +5,7 @@ const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 // used for updating the DOM
 const ui = require('./ui.js')
+const store = require('./store.js')
 
 const socketEmit = function (socket) {
   socket.emit('greeting', 'This is an effort at modularizing')
@@ -40,8 +41,41 @@ const onLogIn = function (event) {
   event.preventDefault()
   const logInData = getFormFields(event.target)
   api.logIn(logInData)
+    .then(apiResponse => {
+      store.user = apiResponse.user
+      return apiResponse
+    })
+    // now make a get request for the user's profile
+    .then(api.findProfile)
+    // add result to store object
+    .then(apiResponse => {
+      store.user.profile = apiResponse.profile
+    })
     .then(ui.logInSuccess)
     .catch(ui.logInFailure)
+}
+
+const onBuildProfile = function (event) {
+  event.preventDefault()
+  const profileData = getFormFields(event.target)
+  api.createProfile(profileData)
+    .then(ui.buildProfileSuccess)
+    .catch(ui.buildProfileFailure)
+}
+
+const onLogOut = (event) => {
+  event.preventDefault()
+  api.logOut()
+    .then(ui.onLogOutSuccess)
+    .catch(ui.onLogOutFailure)
+}
+
+const onChangePwd = (event) => {
+  event.preventDefault()
+  const changePwdData = getFormFields(event.target)
+  api.changePwd(changePwdData)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
 }
 
 module.exports = {
@@ -49,5 +83,8 @@ module.exports = {
   socketReceive,
   onToggleRegister,
   onRegister,
-  onLogIn
+  onLogIn,
+  onBuildProfile,
+  onLogOut,
+  onChangePwd
 }
