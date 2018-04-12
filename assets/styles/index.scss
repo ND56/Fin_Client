@@ -176,6 +176,60 @@ footer {
   color: white;
 }
 
+.messages-wrapper {
+  height: 72vh;
+  margin-bottom: 2vh;
+  border: 1px solid black;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.chat-input {
+  height: 5vh;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.chat-input-button {
+  height: 5vh;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-color: $darker-gray;
+  color: white;
+}
+
+.chat-input-button:hover {
+  background-color: white;
+  color: black;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.messages-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.messages-ul li {
+  padding: 5px 10px;
+}
+
+.messages-ul li:nth-child(odd) {
+  background: #eee;
+}
+
+#chatInput {
+  width: 81%;
+  margin-right: 2.333333333333%;
+}
+
 // ----------------- Other View -------------------------------
 
 // ----------------- Other View -------------------------------

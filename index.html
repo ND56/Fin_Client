@@ -58,7 +58,33 @@
       <!-- Landing Page - End - ********************************************************** -->
 
       <!-- Chat View - Start - *********************************************************** -->
+      <!-- <div class="chat-view-wrapper" id="chat-view-wrapper">
+        <div class="messages-wrapper">
+          <ul id="messagesContainer" class="messages-ul"></ul>
+        </div>
+        <form class="chat-input-form" id="chatInputForm" action="">
+          <input class="chat-input" id="chatInput" autocomplete="off" />
+          <button class="chat-input-button">Send</button>
+        </form>
+      </div> -->
       <div class="chat-view-wrapper" id="chat-view-wrapper">
+        <div class="row">
+          <div class="col-xs-1 empty-space"></div>
+          <div class="col-xs-10 content-column">
+            <div class="row">
+              <div class="messages-wrapper col-xs-12">
+                <ul id="messagesContainer" class="messages-ul"></ul>
+              </div>
+            </div>
+            <div class="row">
+              <form class="chat-input-form" id="chatInputForm" action="">
+                <input class="chat-input col-xs-10" id="chatInput" autocomplete="off" />
+                <button class="chat-input-button col-xs-2">Send</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-xs-1 empty-space"></div>
+        </div>
       </div>
       <!-- Chat View - End - ************************************************************* -->
 
@@ -175,7 +201,7 @@
                   <div class="form-group">
                     <div class="input-div col-sm-12">
                       <!-- <input type="password" class="form-control" id="inputPhone1" name="profile[phone]" placeholder="Phone Number"> -->
-                      <input type="text" class="input-medium bfh-phone form-control" id="inputPhone1" name="profile[phone]" data-format="ddd-ddd-dddd" placeholder="Phone Number" data-toggle="tooltip" data-placement="bottom" title="In future iterations, providing Fin with your phone number will allow him to send you reminders." data-animation="true">
+                      <input type="text" autocomplete='off' class="input-medium bfh-phone form-control" id="inputPhone1" name="profile[phone]" data-format="ddd-ddd-dddd" placeholder="Phone Number" data-toggle="tooltip" data-placement="bottom" title="In future iterations, providing Fin with your phone number will allow him to send you reminders." data-animation="true">
                     </div>
                   </div>
               </div>
@@ -216,7 +242,7 @@
                   <div class="form-group">
                     <div class="input-div col-sm-12">
                       <!-- <input type="password" class="form-control" id="inputPhone1" name="profile[phone]" placeholder="Phone Number"> -->
-                      <input type="text" class="input-medium bfh-phone form-control" id="inputPhone20" name="profile[phone]" data-format="ddd-ddd-dddd" placeholder="Phone Number">
+                      <input type="text" autocomplete='off' class="input-medium bfh-phone form-control" id="inputPhone20" name="profile[phone]" data-format="ddd-ddd-dddd" placeholder="Phone Number">
                     </div>
                   </div>
               </div>

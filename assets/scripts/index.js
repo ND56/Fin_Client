@@ -15,10 +15,10 @@ $(() => {
 
   // at page load
   $('#register-content-wrapper').hide()
-  $('#static-nav').hide()
-  $('#chat-view-wrapper').hide()
-  $('#footer').hide()
-  // $('#landing-wrapper').hide()
+  // $('#static-nav').hide()
+  // $('#chat-view-wrapper').hide()
+  // $('#footer').hide()
+  $('#landing-wrapper').hide()
   $('[data-toggle="tooltip"]').tooltip()
   // bootstrap form helper
   bootstrap.bootstrapPhoneHelper()
