@@ -42,18 +42,14 @@ $(() => {
     events.submitMessage(event, socket)
   })
 
-  // incoming web socket handlers
-  socket.on('connect', function () {
-    events.socketEmit(socket)
-  })
-  socket.on('greeting', function (message) {
-    events.socketReceive(message)
+  // incoming socket event handlers
+  socket.on('connection notice', function (message) {
+    console.log(message)
   })
   socket.on('message', function (message) {
     events.socketReceive(message)
   })
-
-  // web socket connection error handler
+  // socket connection error handler
   socket.on('connect_error', function (error) {
     console.log('socket connection error is', error)
   })

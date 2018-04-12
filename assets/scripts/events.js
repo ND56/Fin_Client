@@ -5,9 +5,9 @@ const getFormFields = require('../../lib/get-form-fields.js')
 const api = require('./api.js')
 // used for updating the DOM
 const ui = require('./ui.js')
+// used to access stored session data
 const store = require('./store.js')
 
-// toggles log-in modal to have log-in or register fields
 const onToggleRegister = function (event) {
   event.preventDefault()
   const button = $(event.target).text()
@@ -36,12 +36,13 @@ const onLogIn = function (event) {
       store.user = apiResponse.user
       return apiResponse
     })
-    // now make a get request for the user's profile
+    // request user's profile
     .then(api.findProfile)
     // add result to store object
     .then(apiResponse => {
       store.user.profile = apiResponse.profile
     })
+    // proceed with log in
     .then(ui.logInSuccess)
     .catch(ui.logInFailure)
 }
@@ -94,17 +95,16 @@ const submitMessage = (event, socket) => {
   socket.emit('message', userMessage)
 }
 
-const socketEmit = function (socket) {
-  socket.emit('greeting', 'This is an effort at modularizing')
-}
-
 const socketReceive = function (message) {
-  console.log(message)
-  ui.displayMessage(message)
+  // append API/dialogflow response to DOM
+  if (message === '') {
+    ui.displayMessage('Apologies, my intelligence is limited in certain respects and I don\'t quite understand what you said. Try re-phrasing your statement!')
+  } else {
+    ui.displayMessage(message)
+  }
 }
 
 module.exports = {
-  socketEmit,
   socketReceive,
   onToggleRegister,
   onRegister,
