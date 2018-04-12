@@ -55,8 +55,12 @@ const logInSuccess = function (apiResponse) {
 }
 
 const logInFailure = function (error) {
+  // store attempted userName
+  store.attemptedUsername = $('#inputEmail1').val()
   // error messages depending on issue
-  if (error.responseJSON.error.message === '404 Not Found') {
+  if (store.attemptedUsername === '') {
+    notification.tempToast('error', `Failed to Log In`, `You failed to include a username. Input a username and try again.`, 'red', 'black', 'red', 8000)
+  } else if (error.responseJSON.error.message === '404 Not Found') {
     notification.tempToast('error', `Failed to Log In`, `${$('#inputEmail1').val()} has not yet been registered. Try registering this account before logging in.`, 'red', 'black', 'red', 8000)
   } else if (error.responseJSON.error.message === 'Not Authorized') {
     notification.tempToast('error', `Failed to Log In`, 'You entered an incorrect password. Please try again.', 'red', 'black', 'red', 8000)
@@ -128,15 +132,74 @@ const buildProfileSuccess = function (apiResponse) {
 }
 
 const buildProfileFailure = function (error) {
+  // store attempted username
+  store.attemptedUsername = $('#inputUsername1').val()
   // clear form
   $('#profile-build-form').each(function () {
     this.reset()
   })
+  console.error(error)
   // error notification
-  if (error.responseJSON.error.error.errors.phone.properties.message === '{VALUE} is not a valid phone number!') {
-    notification.tempToast('error', `Failed to Create Profile`, `${error.responseJSON.error.error.errors.phone.properties.value} is an invalid phone number. Please enter a correct phone number to proceed.`, 'red', 'black', 'red', 8000)
+  if (store.attemptedUsername === '') {
+    notification.tempToast('error', `Failed to Create Profile`, `Usernames are required. Please enter a username and try again.`, 'red', 'black', 'red', 8000)
   } else {
-    notification.tempToast('error', `Failed to Edit Password`, `Server Message: ${error.responseJSON.error.message}`, 'red', 'black', 'red', 8000)
+    notification.tempToast('error', `Failed to Build Profile`, `Server Message: ${error.responseJSON.error.message}`, 'red', 'black', 'red', 8000)
+  }
+}
+
+const deleteProfileSuccess = () => {
+  // clear form
+  $('#profile-edit-form').each(function () {
+    this.reset()
+  })
+  // close Modal
+  $('#edit-profile-modal').modal('hide')
+  // success notice
+  notification.tempToast('success', 'Profile Deleted', 'You successefully deleted your profile. You\'ve been logged out and will be prompted to create a new profile if you choose to log in again. Thanks for participating!', '#686868', 'white', 'black', 8500)
+  // sending back to landing page
+  $('#static-nav').hide()
+  $('#chat-view-wrapper').hide()
+  $('#footer').hide()
+  $('#landing-wrapper').fadeIn()
+}
+
+const deleteProfileFailure = (error) => {
+  // failure notice
+  notification.tempToast('error', `Failed to Delete Profile`, `Server Message: ${error.responseJSON.error.message}`, 'red', 'black', 'red', 8000)
+}
+
+const requestEditProfileModal = function () {
+  console.log(store.user.profile)
+  $('#edit-profile-modal').modal('show')
+  // clear form
+  $('#profile-edit-form').each(function () {
+    this.reset()
+  })
+  // populate form
+  $('#inputUsername20').val(store.user.profile.userName)
+  $('#inputPhone20').val(store.user.profile.phone)
+}
+
+const editProfileSuccess = (apiResponse) => {
+  console.log(apiResponse)
+  // update store
+  store.user.profile.userName = $('#inputUsername20').val()
+  store.user.profile.phone = $('#inputPhone20').val()
+  // notification
+  notification.tempToast('success', 'Profile Updated', 'You successfully edited your profile.', '#686868', 'white', 'black', 5000)
+  // close modal
+  $('#edit-profile-modal').modal('hide')
+}
+
+const editProfileFailure = (error) => {
+  // store attempted username
+  store.attemptedUsername = $('#inputUsername20').val()
+  console.error(error)
+  // error notification
+  if (store.attemptedUsername === '') {
+    notification.tempToast('error', `Failed to Create Profile`, `Usernames are required. Please enter a username and try again.`, 'red', 'black', 'red', 8000)
+  } else {
+    notification.tempToast('error', `Failed to Build Profile`, `Server Message: ${error.responseJSON.error.message}`, 'red', 'black', 'red', 8000)
   }
 }
 
@@ -151,5 +214,10 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   buildProfileSuccess,
-  buildProfileFailure
+  buildProfileFailure,
+  requestEditProfileModal,
+  deleteProfileSuccess,
+  deleteProfileFailure,
+  editProfileSuccess,
+  editProfileFailure
 }

@@ -195,6 +195,48 @@
         </div>
       <!-- Profile Build Modal - End -->
 
+      <!-- Edit Profile Modal - Start -->
+      <div class="modal fade" id="edit-profile-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content edit-profile-modal-content" id="edit-profile-modal-content">
+            <!-- edit profile Content -->
+            <div id="profile-edit-content-wrapper">
+              <!-- Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Edit Profile</h4>
+              </div>
+              <!-- Start form for edit-profile-modal -->
+              <div class="modal-body">
+                <form class="form-horizontal" id="profile-edit-form">
+                    <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="text" class="form-control" id="inputUsername20" name="profile[userName]" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <!-- <input type="password" class="form-control" id="inputPhone1" name="profile[phone]" placeholder="Phone Number"> -->
+                      <input type="text" class="input-medium bfh-phone form-control" id="inputPhone20" name="profile[phone]" data-format="ddd-ddd-dddd" placeholder="Phone Number">
+                    </div>
+                  </div>
+              </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button class="btn btn-default modal-button delete-button" id="edit-profile-delete" data-toggle="tooltip" data-placement="bottom" title="Your profile is necessary to interact with Fin. If you delete it, you will be logged out." data-animation="true">Delete</button>
+                      <button type="submit" class="btn btn-default modal-button" id="edit-profile-modal-submit-button">Submit</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+              <!-- End Content -->
+            </div>
+          </div>
+        </div>
+      <!-- Edit Profile Modal - End -->
+
       <!-- Change Password Modal - Start -->
       <div class="modal fade" id="change-pwd-modal" tabindex="-1">
         <div class="modal-dialog modal-sm">

@@ -73,11 +73,36 @@ const findProfile = function (data) {
   })
 }
 
+const deleteProfile = function () {
+  return $.ajax({
+    url: apiUrl + '/profiles/' + store.user.profile.id,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const editProfile = function (data) {
+  return $.ajax({
+    url: apiUrl + '/profiles/' + store.user.profile.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   registerUser,
   logIn,
   createProfile,
   logOut,
   changePwd,
-  findProfile
+  findProfile,
+  deleteProfile,
+  editProfile
 }

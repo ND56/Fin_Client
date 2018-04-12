@@ -13,12 +13,15 @@ $(() => {
   // establishing socket and emitting to dev and production API
   const socket = io(apiUrl)
 
-  // hidden at page load
+  // at page load
   $('#register-content-wrapper').hide()
   $('#static-nav').hide()
   $('#chat-view-wrapper').hide()
   $('#footer').hide()
   // $('#landing-wrapper').hide()
+  $('[data-toggle="tooltip"]').tooltip()
+  // bootstrap form helper
+  bootstrap.bootstrapPhoneHelper()
 
   // landing page event handlers
   $('#log-in-modal-register-toggle-button').on('click', events.onToggleRegister)
@@ -26,12 +29,14 @@ $(() => {
   $('#register-form').on('submit', events.onRegister)
   $('#log-in-form').on('submit', events.onLogIn)
   $('#profile-build-form').on('submit', events.onBuildProfile)
-  $('[data-toggle="tooltip"]').tooltip()
 
   // chat view event handlers
   $('#sign-out-li').on('click', events.onLogOut)
   $('#edit-pwd-li').on('click', ui.requestPwdModal)
   $('#change-pwd-form').on('submit', events.onChangePwd)
+  $('#profile-li').on('click', ui.requestEditProfileModal)
+  $('#edit-profile-delete').on('click', events.onDeleteProfile)
+  $('#profile-edit-form').on('submit', events.onEditProfile)
 
   // general event handlers
   socket.on('connect', function () {
@@ -48,7 +53,4 @@ $(() => {
   socket.on('error', function (error) {
     console.log('socket error is', error)
   })
-
-  // bootstrap form helper
-  bootstrap.bootstrapPhoneHelper()
 })

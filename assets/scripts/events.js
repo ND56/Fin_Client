@@ -78,6 +78,22 @@ const onChangePwd = (event) => {
     .catch(ui.changePasswordFailure)
 }
 
+const onDeleteProfile = function (event) {
+  event.preventDefault()
+  api.deleteProfile()
+    .then(api.logOut)
+    .then(ui.deleteProfileSuccess)
+    .catch(ui.deleteProfileFailure)
+}
+
+const onEditProfile = (event) => {
+  event.preventDefault()
+  const editProfileData = getFormFields(event.target)
+  api.editProfile(editProfileData)
+    .then(ui.editProfileSuccess)
+    .catch(ui.editProfileFailure)
+}
+
 module.exports = {
   socketEmit,
   socketReceive,
@@ -86,5 +102,7 @@ module.exports = {
   onLogIn,
   onBuildProfile,
   onLogOut,
-  onChangePwd
+  onChangePwd,
+  onDeleteProfile,
+  onEditProfile
 }
