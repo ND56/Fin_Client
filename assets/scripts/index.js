@@ -26,6 +26,7 @@ $(() => {
   $('#register-form').on('submit', events.onRegister)
   $('#log-in-form').on('submit', events.onLogIn)
   $('#profile-build-form').on('submit', events.onBuildProfile)
+  $('[data-toggle="tooltip"]').tooltip()
 
   // chat view event handlers
   $('#sign-out-li').on('click', events.onLogOut)

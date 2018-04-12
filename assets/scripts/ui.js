@@ -109,7 +109,9 @@ const changePasswordFailure = function (error) {
   }
 }
 
-const buildProfileSuccess = function () {
+const buildProfileSuccess = function (apiResponse) {
+  // append to user object in store
+  store.user.profile = apiResponse.profile
   // clear form
   $('#profile-build-form').each(function () {
     this.reset()
