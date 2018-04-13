@@ -6,6 +6,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $dark-gray: #7F7F7F;
 $darker-gray: #686868;
+$tangerine: #FCA166;
 
 // ----------------- Global -----------------------------------
 
@@ -123,10 +124,10 @@ footer {
   font-size: 23em;
   padding-top: 11%;
   margin: 0;
-  font-family: 'Gugi', cursive;
+  // font-family: 'Gugi', cursive;
   // font-family: 'Righteous', cursive;
   // font-family: 'Poiret One', cursive;
-  // font-family: 'Libre Barcode 39 Text', cursive;
+  font-family: 'Libre Barcode 39 Text', cursive;
 }
 
 .proceed-button {
@@ -238,6 +239,15 @@ button:focus {
 #chatInput {
   width: 81%;
   margin-right: 2.333333333333%;
+}
+
+.speaker {
+  // font-family: 'Gugi', cursive;
+  font-family: 'Righteous', cursive;
+  // font-family: 'Poiret One', cursive;
+  // color: black;
+  color: $tangerine;
+  font-size: 17px;
 }
 
 // ----------------- Other View -------------------------------

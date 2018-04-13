@@ -203,11 +203,15 @@ const editProfileFailure = (error) => {
   }
 }
 
-const displayMessage = (message) => {
-  // append to DOM
-  $('#messagesUL').append($('<li>').text(message))
-  // clear form
-  $('#chatInput').val('')
+const displayMessage = (message, speaker) => {
+  if (speaker === 'user') {
+    // append to DOM
+    $('#messagesUL').append(`<li><span class="speaker">${store.user.profile.userName}:</span> ${message}</li>`)
+    // clear form
+    $('#chatInput').val('')
+  } else {
+    $('#messagesUL').append(`<li><span class="speaker">Fin:</span> ${message}</li>`)
+  }
 }
 
 module.exports = {

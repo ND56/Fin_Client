@@ -90,7 +90,7 @@ const submitMessage = (event, socket) => {
   event.preventDefault()
   const userMessage = $('#chatInput').val()
   // append message to the DOM
-  ui.displayMessage(userMessage)
+  ui.displayMessage(userMessage, 'user')
   // send the message to the API
   // sends user ID to create unique dialogflow session
   socket.emit('message', {
@@ -102,9 +102,9 @@ const submitMessage = (event, socket) => {
 const socketReceive = function (message) {
   // append API/dialogflow response to DOM
   if (message === '') {
-    ui.displayMessage('Apologies, my intelligence is limited in certain respects and I don\'t quite understand what you said. Try re-phrasing your statement!')
+    ui.displayMessage('Apologies, my intelligence is limited in certain respects and I don\'t quite understand what you said. Try re-phrasing your statement!', 'Fin')
   } else {
-    ui.displayMessage(message)
+    ui.displayMessage(message, 'Fin')
   }
 }
 
