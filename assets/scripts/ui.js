@@ -212,6 +212,9 @@ const displayMessage = (message, speaker) => {
   } else {
     $('#messagesUL').append(`<li><span class="speaker">Fin:</span> ${message}</li>`)
   }
+  // scroll to bottom of div
+  const element = document.getElementById('messagesWrapper')
+  element.scrollTop = element.scrollHeight
 }
 
 module.exports = {
