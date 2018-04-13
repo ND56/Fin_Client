@@ -23,7 +23,7 @@ TBD.
 
 ### User Stories
 
-#### First Iteraton
+#### First Iteration
 1. As a user, I want to be able to sign up to use this app.
 2. As a user, I want to be able to sign in to use this app.
 3. As a user, I will want to be able to change my password that I use for signing in to this app.
@@ -34,7 +34,7 @@ TBD.
 8. As a user, I want to be able to chat with Fin.
 9. As a user, I want this experience to feel like I'm speaking with a human.
 
-#### Future Iteratons/Bonus
+#### Future Iterations/Bonus
 10. As a user, I want to be able to read documentation on Fin to understand how he works and what he can do for me.
 11. As a user, I want to be able to run google searches through Fin.
 12. As a user, I want to be able to have Fin set reminders for me.

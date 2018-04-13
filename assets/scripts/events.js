@@ -92,7 +92,11 @@ const submitMessage = (event, socket) => {
   // append message to the DOM
   ui.displayMessage(userMessage)
   // send the message to the API
-  socket.emit('message', userMessage)
+  // sends user ID to create unique dialogflow session
+  socket.emit('message', {
+    message: userMessage,
+    uniqueId: store.user._id
+  })
 }
 
 const socketReceive = function (message) {
