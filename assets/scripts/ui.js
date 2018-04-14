@@ -204,16 +204,27 @@ const editProfileFailure = (error) => {
 }
 
 const displayMessage = (message, speaker) => {
+  const element = document.getElementById('messagesWrapper')
   if (speaker === 'user') {
     // append to DOM
     $('#messagesUL').append(`<li><span class="speaker">${store.user.profile.userName}:</span> ${message}</li>`)
     // clear form
     $('#chatInput').val('')
   } else {
-    $('#messagesUL').append(`<li><span class="speaker">Fin:</span> ${message}</li>`)
+    // delay Fin's message to give appearance Fin is "typing"
+    const delayedMessage = function () {
+      $('#messagesUL').append(`<li id="typing" class="typing"><span>Fin is typing...</li>`)
+      window.setTimeout(appendMessage, 3000)
+    }
+    const appendMessage = function () {
+      $('#typing').remove()
+      $('#messagesUL').append(`<li><span class="speaker">Fin:</span> <span class="fin-message">${message}</span></li>`)
+      // scroll to bottom of div
+      element.scrollTop = element.scrollHeight
+    }
+    delayedMessage()
   }
   // scroll to bottom of div
-  const element = document.getElementById('messagesWrapper')
   element.scrollTop = element.scrollHeight
 }
 

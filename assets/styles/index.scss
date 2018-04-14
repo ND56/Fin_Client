@@ -250,6 +250,22 @@ button:focus {
   font-size: 17px;
 }
 
+#typing {
+  border: none !important;
+  background-color: white;
+  color: $dark-gray;
+  text-align: center;
+  font-family: 'Warnes', cursive;
+}
+
+.fin-message {
+  // font-family: 'Roboto Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
+  // font-family: 'Roboto', sans-serif;
+  // font-family: 'Source Code Pro', monospace;
+  // font-family: 'Warnes', cursive;
+}
+
 // ----------------- Other View -------------------------------
 
 // ----------------- Other View -------------------------------
