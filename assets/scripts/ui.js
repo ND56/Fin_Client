@@ -51,6 +51,8 @@ const logInSuccess = function (apiResponse) {
     $('#static-nav').fadeIn()
     $('#chat-view-wrapper').fadeIn()
     $('#footer').fadeIn()
+    // update dropdown label
+    $('#user-email-dropdown').text(store.user.email)
   }
 }
 
@@ -79,6 +81,8 @@ const onLogOutSuccess = function () {
   $('#footer').hide()
   $('#landing-wrapper').fadeIn()
   notification.tempToast('success', 'Sign-Out Success', 'Come back soon!', 'black', 'white', '#686868', 4000)
+  // empty chat box
+  $('#messagesUL').empty()
 }
 
 const onLogOutFailure = function () {
@@ -129,6 +133,8 @@ const buildProfileSuccess = function (apiResponse) {
   $('#static-nav').fadeIn()
   $('#chat-view-wrapper').fadeIn()
   $('#footer').fadeIn()
+  // change Placeholder dropdown
+  $('#user-email-dropdown').text(store.user.email)
 }
 
 const buildProfileFailure = function (error) {
@@ -189,6 +195,8 @@ const editProfileSuccess = (apiResponse) => {
   notification.tempToast('success', 'Profile Updated', 'You successfully edited your profile.', '#686868', 'white', 'black', 5000)
   // close modal
   $('#edit-profile-modal').modal('hide')
+  // update DOM
+  $("span[data-id='userName1']").text(store.user.profile.userName)
 }
 
 const editProfileFailure = (error) => {
@@ -207,7 +215,7 @@ const displayMessage = (message, speaker) => {
   const element = document.getElementById('messagesWrapper')
   if (speaker === 'user') {
     // append to DOM
-    $('#messagesUL').append(`<li><span class="speaker">${store.user.profile.userName}:</span> ${message}</li>`)
+    $('#messagesUL').append(`<li><span class="speaker" data-id="userName1">${store.user.profile.userName}:</span> ${message}</li>`)
     // clear form
     $('#chatInput').val('')
   } else {
