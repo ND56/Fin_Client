@@ -222,7 +222,7 @@ const displayMessage = (message, speaker) => {
     // delay Fin's message to give appearance Fin is "typing"
     const delayedMessage = function () {
       $('#messagesUL').append(`<li id="typing" class="typing"><span>Fin is typing...</li>`)
-      window.setTimeout(appendMessage, 3000)
+      window.setTimeout(appendMessage, 2000) // was 3000, but I dropped it because I thought it was a little too long.
     }
     const appendMessage = function () {
       $('#typing').remove()
@@ -241,7 +241,7 @@ const googleSearchSuccess = (apiResponse) => {
   // delay Fin's message to give appearance Fin is "typing"
   const delayedMessage = function () {
     $('#messagesUL').append(`<li id="typing" class="typing"><span>Fin is typing...</li>`)
-    window.setTimeout(appendMessage, 3000)
+    window.setTimeout(appendMessage, 2000) // was 3000, but I dropped it because I thought it was a little too long.
   }
   const appendMessage = function () {
     console.log(apiResponse)
@@ -323,6 +323,116 @@ const googleSearchFailure = (apiResponse) => {
   notification.tempToast('error', `Google Search Failed`, `Try re-phrasing your search query!`, 'red', 'black', 'red', 8000)
 }
 
+const displayGreeting = (name) => {
+  const element = document.getElementById('messagesWrapper')
+  // delay Fin's message to give appearance Fin is "typing"
+  const delayedMessage = function () {
+    $('#messagesUL').append(`<li id="typing" class="typing"><span>Fin is typing...</li>`)
+    window.setTimeout(appendMessage, 2000) // was 3000, but I dropped it because I thought it was a little too long.
+  }
+  const appendMessage = function () {
+    $('#typing').remove()
+    // randomize part of response
+    const randomNum = Math.floor(Math.random() * 5) + 1
+    let finGreeting = ''
+    switch (randomNum) {
+      case 1:
+        finGreeting = `Nice to meet you, ${name}`
+        break
+      case 2:
+        finGreeting = `A pleasure to meet you, ${name}`
+        break
+      case 3:
+        finGreeting = `Pleased to meet you, ${name}`
+        break
+      case 4:
+        finGreeting = `Thanks for visiting, ${name}`
+        break
+      case 5:
+        finGreeting = `Thanks for dropping by, ${name}`
+        break
+    }
+    // append greeting
+    $('#messagesUL').append(`
+      <li><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below is an abridged list of my skills.
+      <br>
+      <br>
+      <span class="list-number">(1)</span> Quoting Chris
+      <br>
+      <span class="list-number">(2)</span> Telling jokes
+      <br>
+      <span class="list-number">(3)</span> Musing on the meaning of life
+      <br>
+      <span class="list-number">(4)</span> Emulating fox noises
+      <br>
+      <span class="list-number">(5)</span> Engaging in simple conversation
+      <br>
+      <span class="list-number">(6)</span> Sharing random facts
+      <br>
+      <span class="list-number">(7)</span> Fluency in over six million forms of communication
+      <br>
+      <span class="list-number">(8)</span> Sending messages
+      <br>
+      <span class="list-number">(9)</span> Reporting on the weather
+      <br>
+      <span class="list-number">(10)</span> Searching the web
+      <br></span>
+      <br>
+      </li>
+    `)
+    // scroll to bottom of div
+    element.scrollTop = element.scrollHeight
+  }
+  delayedMessage()
+  // scroll to bottom of div
+  element.scrollTop = element.scrollHeight
+}
+
+const displaySkills = () => {
+  const element = document.getElementById('messagesWrapper')
+  // delay Fin's message to give appearance Fin is "typing"
+  const delayedMessage = function () {
+    $('#messagesUL').append(`<li id="typing" class="typing"><span>Fin is typing...</li>`)
+    window.setTimeout(appendMessage, 2000) // was 3000, but I dropped it because I thought it was a little too long.
+  }
+  const appendMessage = function () {
+    $('#typing').remove()
+    // append skills
+    $('#messagesUL').append(`
+      <li><span class="speaker">Fin:</span> <span class="fin-message">Below is an abridged list of my skills.
+      <br>
+      <br>
+      <span class="list-number">(1)</span> Quoting Chris
+      <br>
+      <span class="list-number">(2)</span> Telling jokes
+      <br>
+      <span class="list-number">(3)</span> Musing on the meaning of life
+      <br>
+      <span class="list-number">(4)</span> Emulating fox noises
+      <br>
+      <span class="list-number">(5)</span> Engaging in simple conversation
+      <br>
+      <span class="list-number">(6)</span> Sharing random facts
+      <br>
+      <span class="list-number">(7)</span> Fluency in over six million forms of communication
+      <br>
+      <span class="list-number">(8)</span> Sending messages
+      <br>
+      <span class="list-number">(9)</span> Reporting on the weather
+      <br>
+      <span class="list-number">(10)</span> Searching the web
+      <br></span>
+      <br>
+      </li>
+    `)
+    // scroll to bottom of div
+    element.scrollTop = element.scrollHeight
+  }
+  delayedMessage()
+  // scroll to bottom of div
+  element.scrollTop = element.scrollHeight
+}
+
 module.exports = {
   registerSuccess,
   registerFailure,
@@ -342,5 +452,7 @@ module.exports = {
   editProfileFailure,
   displayMessage,
   googleSearchSuccess,
-  googleSearchFailure
+  googleSearchFailure,
+  displayGreeting,
+  displaySkills
 }

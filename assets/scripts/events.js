@@ -115,6 +115,14 @@ const googleAction = function (query) {
     .catch(ui.googleSearchFailure)
 }
 
+const onGreeting = function (name) {
+  ui.displayGreeting(name)
+}
+
+const onSkillsRequest = () => {
+  ui.displaySkills()
+}
+
 module.exports = {
   socketReceive,
   onToggleRegister,
@@ -126,5 +134,7 @@ module.exports = {
   onDeleteProfile,
   onEditProfile,
   submitMessage,
-  googleAction
+  googleAction,
+  onGreeting,
+  onSkillsRequest
 }

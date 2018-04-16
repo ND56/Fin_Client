@@ -52,7 +52,14 @@ $(() => {
   socket.on('google', function (query) {
     events.googleAction(query)
   })
-  // socket connection error handler
+  socket.on('greeting', function (name) {
+    events.onGreeting(name)
+  })
+  socket.on('skills', function (query) {
+    events.onSkillsRequest(query)
+  })
+
+  // socket connection error handlers
   socket.on('connect_error', function (error) {
     console.log('socket connection error is', error)
   })
