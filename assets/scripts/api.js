@@ -96,6 +96,13 @@ const editProfile = function (data) {
   })
 }
 
+const googleSearch = function (query) {
+  return $.ajax({
+    url: 'https://www.googleapis.com/customsearch/v1?key=AIzaSyBNX9YpMFBmxCztPX42VWf384Lh5hbpvDU&cx=012510568503961391389:oowozfrarme&num=3&q=' + query,
+    method: 'GET'
+  })
+}
+
 module.exports = {
   registerUser,
   logIn,
@@ -104,5 +111,6 @@ module.exports = {
   changePwd,
   findProfile,
   deleteProfile,
-  editProfile
+  editProfile,
+  googleSearch
 }

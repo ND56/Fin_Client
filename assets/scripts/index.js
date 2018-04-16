@@ -49,6 +49,9 @@ $(() => {
   socket.on('message', function (message) {
     events.socketReceive(message)
   })
+  socket.on('google', function (query) {
+    events.googleAction(query)
+  })
   // socket connection error handler
   socket.on('connect_error', function (error) {
     console.log('socket connection error is', error)

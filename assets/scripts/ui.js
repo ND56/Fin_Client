@@ -236,6 +236,93 @@ const displayMessage = (message, speaker) => {
   element.scrollTop = element.scrollHeight
 }
 
+const googleSearchSuccess = (apiResponse) => {
+  const element = document.getElementById('messagesWrapper')
+  // delay Fin's message to give appearance Fin is "typing"
+  const delayedMessage = function () {
+    $('#messagesUL').append(`<li id="typing" class="typing"><span>Fin is typing...</li>`)
+    window.setTimeout(appendMessage, 3000)
+  }
+  const appendMessage = function () {
+    console.log(apiResponse)
+    $('#typing').remove()
+    // append search results
+    $('#messagesUL').append(`
+      <li><span class="speaker">Fin:</span> <span class="fin-message">Below are the top 3 of ${apiResponse.searchInformation.totalResults} total search results for "${apiResponse.queries.request[0].searchTerms}", your majesty.</span>
+      <br>
+      <div class="results-wrapper">
+        <div class="row" id="row1">
+          <div class="col-xs-3 search-image" data-id="image-${apiResponse.items[0].cacheId}"></div>
+          <div class="col-xs-1 search-space"></div>
+          <div class="col-xs-8 search-info">
+            <div class="row"><div class="col-xs-12 search-title" id="search-title-1">${apiResponse.items[0].htmlTitle}</div></div>
+            <div class="row"><div class="col-xs-12 search-link"><a id="search-link-1" href="${apiResponse.items[0].link}">${apiResponse.items[0].link}</a></div></div>
+            <div class="row"><div class="col-xs-12 search-snippet" id="search-snippet-1">${apiResponse.items[0].htmlSnippet}</div></div>
+          </div>
+        </div>
+        <div class="row" id="row2">
+          <div class="col-xs-3 search-image" data-id="image-${apiResponse.items[1].cacheId}"></div>
+          <div class="col-xs-1 search-space"></div>
+          <div class="col-xs-8 search-info">
+            <div class="row"><div class="col-xs-12 search-title" id="search-title-2">${apiResponse.items[1].htmlTitle}</div></div>
+            <div class="row"><div class="col-xs-12 search-link"><a id="search-link-2" href="${apiResponse.items[1].link}">${apiResponse.items[1].link}</a></div></div>
+            <div class="row"><div class="col-xs-12 search-snippet" id="search-snippet-2">${apiResponse.items[1].htmlSnippet}</div></div>
+          </div>
+        </div>
+        <div class="row" id="row3">
+          <div class="col-xs-3 search-image" data-id="image-${apiResponse.items[2].cacheId}"></div>
+          <div class="col-xs-1 search-space"></div>
+          <div class="col-xs-8 search-info">
+            <div class="row"><div class="col-xs-12 search-title" id="search-title-3">${apiResponse.items[2].htmlTitle}</div></div>
+            <div class="row"><div class="col-xs-12 search-link"><a id="search-link-3" href="${apiResponse.items[2].link}">${apiResponse.items[2].link}</a></div></div>
+            <div class="row"><div class="col-xs-12 search-snippet" id="search-snippet-3">${apiResponse.items[2].htmlSnippet}</div></div>
+          </div>
+        </div>
+      </div>
+      </li>
+    `)
+    // if image 1 exists, add it, else add stock image
+    if (apiResponse.items[0].pagemap) {
+      if (apiResponse.items[0].pagemap.cse_image) {
+        $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(' + apiResponse.items[0].pagemap.cse_image[0].src + ')')
+      } else {
+        $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+      }
+    } else {
+      $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+    }
+    // if image 2 exists, add it, else add stock image
+    if (apiResponse.items[1].pagemap) {
+      if (apiResponse.items[1].pagemap.cse_image) {
+        $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(' + apiResponse.items[1].pagemap.cse_image[0].src + ')')
+      } else {
+        $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+      }
+    } else {
+      $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+    }
+    // if image 3 exists, add it, else add stock image
+    if (apiResponse.items[2].pagemap) {
+      if (apiResponse.items[2].pagemap.cse_image) {
+        $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(' + apiResponse.items[2].pagemap.cse_image[0].src + ')')
+      } else {
+        $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+      }
+    } else {
+      $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+    }
+    // scroll to bottom of div
+    element.scrollTop = element.scrollHeight
+  }
+  delayedMessage()
+  // scroll to bottom of div
+  element.scrollTop = element.scrollHeight
+}
+
+const googleSearchFailure = (apiResponse) => {
+  notification.tempToast('error', `Google Search Failed`, `Try re-phrasing your search query!`, 'red', 'black', 'red', 8000)
+}
+
 module.exports = {
   registerSuccess,
   registerFailure,
@@ -253,5 +340,7 @@ module.exports = {
   deleteProfileFailure,
   editProfileSuccess,
   editProfileFailure,
-  displayMessage
+  displayMessage,
+  googleSearchSuccess,
+  googleSearchFailure
 }

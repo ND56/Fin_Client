@@ -269,7 +269,52 @@ button:focus {
   // font-family: 'Warnes', cursive;
 }
 
-// ----------------- Other View -------------------------------
+// ----------------- Google Search Result -------------------------------
+
+.results-wrapper {
+  margin-top: 1vh;
+  height: 60vh;
+  overflow: auto;
+}
+
+.search-image {
+  height: 18vh;
+  background-size: cover;
+}
+
+.search-info  {
+  width: 67.666666666666% !important;
+  margin-left: 2vh !important;
+}
+
+.search-title {
+  height: 3vh;
+  font-size: 14px;
+  color: $tangerine;
+  overflow-y: hidden;
+  margin-bottom: 1vh;
+}
+
+.search-link {
+  height: 2vh;
+  overflow-y: hidden;
+  margin-bottom: 1vh;
+  font-size: 11px;
+  color: blue;
+}
+
+.search-snippet {
+  height: 11vh;
+  font-size: 12px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+#row1,
+#row2 {
+  margin-bottom: 1vh;
+}
 
 // ----------------- Other View -------------------------------
 
