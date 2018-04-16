@@ -11,7 +11,16 @@ Sample bulleted, grey-background, link text:
 
 ### Subheader (h3)
 
-TBD.
+1. Emulate fox noises
+2. Tell jokes
+3. Muse on the meaning of life
+4. Favorite movie
+5. Chris quotes
+6. Random Fact
+
+7. Send text messages
+8. Report on the weather
+9. Search the web
 
 #### Subheader (h4)
 
