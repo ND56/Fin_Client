@@ -14,8 +14,8 @@ const registerSuccess = function () {
   $('#register-content-wrapper').hide()
   $('#log-in-content-wrapper').fadeIn()
   // toast notification for success
-  notification.tempToast('success', 'Registration Success', 'Thanks for registering!', 'black', 'white', '#686868', 4000)
-  // notification.tempToast('success', 'Registration Success', 'Thanks for registering!', '#686868', 'white', '#686868', 4000) // grey notification
+  // notification.tempToast('success', 'Registration Success', 'Thanks for registering!', 'black', 'white', '#686868', 4000)
+  notification.tempToast('success', 'Registration Success', 'Thanks for registering!', 'white', 'black', '#686868', 4000) // white back, black text, grey load
 }
 
 const registerFailure = function (error) {
@@ -42,7 +42,8 @@ const logInSuccess = function (apiResponse) {
   if (store.user.profile === undefined) {
     // go to build profile modal
     $('#profile-build-modal').modal('show')
-    notification.tempToast('success', 'Sign-In Success', 'Every interaction improves Fin\'s functionality. Thanks for participating!', '#686868', 'white', 'black', 5000)
+    // notification.tempToast('success', 'Sign-In Success', 'Every interaction improves Fin\'s functionality. Thanks for participating!', '#686868', 'white', 'black', 5000)
+    notification.tempToast('success', 'Sign-In Success', 'Every interaction improves Fin\'s functionality. Thanks for participating!', 'white', 'black', '#686868', 5000) // white back, black text, grey load
     notification.staticToast('info', 'Profile Required', 'Users must build a profile before interacting with Fin.', 'blue', 'white', 'blue')
   } else {
     // go straight to chat view
@@ -80,7 +81,8 @@ const onLogOutSuccess = function () {
   $('#chat-view-wrapper').hide()
   $('#footer').hide()
   $('#landing-wrapper').fadeIn()
-  notification.tempToast('success', 'Sign-Out Success', 'Come back soon!', 'black', 'white', '#686868', 4000)
+  // notification.tempToast('success', 'Sign-Out Success', 'Come back soon!', 'black', 'white', '#686868', 4000)
+  notification.tempToast('success', 'Sign-Out Success', 'Come back soon!', 'white', 'black', '#686868', 4000) // white back, black text, grey load
   // empty chat box
   $('#messagesUL').empty()
 }

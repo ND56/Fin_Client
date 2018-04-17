@@ -119,11 +119,20 @@ footer {
 
 // ----------------- Landing Page -----------------------------
 
+#landing-wrapper {
+  // background: url('https://imgur.com/3jZIfkP.jpg') no-repeat center center fixed;
+  background: url('https://imgur.com/9OeQwtW.jpg') no-repeat center center fixed;
+  // background: url('https://imgur.com/Jl1hVmW.jpg') no-repeat center center fixed;
+  // background: url('https://imgur.com/7lArD4v.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
 .comment-bubble {
   font-size: 7em;
   display: inline;
   position: absolute;
-  color: black;
+  // color: black;
+  color: white;
   right: 27%;
   top: 16%;
 }
@@ -137,7 +146,8 @@ footer {
 }
 
 .landing-header {
-  color: black;
+  // color: black;
+  color: white;
   font-size: 23em;
   padding-top: 11%;
   margin: 0;
@@ -151,7 +161,8 @@ footer {
   font-size: 1em;
   color: black;
   background-color: white;
-  border: 6px solid black;
+  // border: 6px solid black;
+  border: 6px solid white;
   border-radius: 10px;
   padding: .5%;
   // font-family: 'Source Code Pro', monospace;
@@ -159,11 +170,13 @@ footer {
   // font-family: 'Titan One', cursive;
   // font-family: 'Holtwood One SC', serif;
   transition: background 0.3s ease-in-out;
+  // transition: border-color 0.3s ease-in-out;
 }
 
 .proceed-button:hover {
-  color: white;
-  background-color: black;
+  // color: white;
+  background-color: $darker-gray;
+  // border-color: $darker-gray;
 }
 
 .proceed-button:focus {
