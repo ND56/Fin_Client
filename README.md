@@ -2,11 +2,11 @@
 
 ## Links
 
--   [Front-end Repo]: https://github.com/ND56/Fin_Client
--   [Deployed Front-end]: https://nd56.github.io/Fin_Client/
+-   Front-end Repo: https://github.com/ND56/Fin_Client
+-   Deployed Front-end: https://nd56.github.io/Fin_Client/
 
--   [Back-end Repo]: https://github.com/ND56/Fin_API
--   [Deployed Back-end]: https://fin-api.herokuapp.com/
+-   Back-end Repo: https://github.com/ND56/Fin_API
+-   Deployed Back-end: https://fin-api.herokuapp.com/
 
 ## Overview
 
