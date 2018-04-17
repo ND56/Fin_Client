@@ -28,8 +28,6 @@ In it's current iteration, users can prompt Fin to do the following:
 
 ### Front-End
 
-Front-end: (1) HTML (including Handlebars), (2) CSS, (3) Bootstrap, and (4) JavaScript (including jQuery for DOM manipulation and jQuery/AJAX for API interactions).
-
 1. HTML/CSS/Bootstrap
 2. JavaScript/jQuery/AJAX
 3. Web Sockets - Socket.io
