@@ -6,16 +6,16 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Title icon -->
       <!-- <link rel="shortcut icon" type="image/png" href="https://imgur.com/K94ugKV.png" /> -->
-      <link rel="shortcut icon" type="image/png" href="https://imgur.com/8F9oCdX.png" />
-      <!-- <link rel="shortcut icon" type="image/png" href="https://imgur.com/JFelPRN.png" /> -->
+      <!-- <link rel="shortcut icon" type="image/png" href="https://imgur.com/8F9oCdX.png" /> -->
+      <link rel="shortcut icon" type="image/png" href="https://imgur.com/JFelPRN.png" />
       <!-- Landing Header Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Amatic+SC|East+Sea+Dokdo|Gaegu|Gugi|Julius+Sans+One|Libre+Barcode+39+Extended+Text|Libre+Barcode+39+Text|Passion+One|Poiret+One|Righteous|Sacramento" rel="stylesheet">
       <!-- Body fonts -->
       <link href="https://fonts.googleapis.com/css?family=Montserrat|Tajawal" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|Roboto+Mono:400,400i|Roboto:400,400i|Source+Code+Pro|Warnes" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Holtwood+One+SC|Krona+One|Titan+One" rel="stylesheet">
       <!-- Font-Awesome -->
-      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
-      <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+      <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
       <!-- animate.css -->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
       <!-- Scripts -->
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-default static-nav">
           <div class="container-fluid">
            <div class="navbar-header">
-             <a class="navbar-brand" href="#">Fin</a>
+             <a class="navbar-brand" href="#">Fin <i class="far fa-comment mini-comment-bubble"></i></a>
            </div>
            <div id="navbar" class="navbar-collapse collapse">
              <ul class="nav navbar-nav navbar-right">
@@ -53,6 +53,7 @@
 
       <!-- Landing Page - Start - ******************************************************** -->
       <div class="landing-wrapper" id="landing-wrapper">
+        <i class="far fa-comment comment-bubble animation-delay animated bounceInRight"></i>
         <h1 class="landing-header" id="landing-header">Fin</h1>
         <button class="proceed-button animation-delay animated bounceInLeft" id="proceed-button" data-toggle="modal" data-target="#log-in-modal">Proceed</button>
       </div>
@@ -244,7 +245,7 @@
                 <div class="modal-footer">
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button class="btn btn-default modal-button delete-button" id="edit-profile-delete" data-toggle="tooltip" data-placement="bottom" title="Your profile is necessary to interact with Fin. If you delete it, you will be logged out." data-animation="true">Delete</button>
+                      <button type="button" class="btn btn-default modal-button delete-button" id="edit-profile-delete" data-toggle="tooltip" data-placement="bottom" title="Your profile is necessary to interact with Fin. If you delete it, you will be logged out." data-animation="true">Delete</button>
                       <button type="submit" class="btn btn-default modal-button" id="edit-profile-modal-submit-button">Submit</button>
                     </div>
                   </div>

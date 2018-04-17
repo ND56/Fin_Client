@@ -85,7 +85,7 @@ const onLogOutSuccess = function () {
   $('#messagesUL').empty()
 }
 
-const onLogOutFailure = function () {
+const onLogOutFailure = function (error) {
   notification.tempToast('error', `Sign-Out Failure`, `Server Message: ${error.responseJSON.error.message}`, 'red', 'black', 'red', 8000)
 }
 
@@ -215,7 +215,7 @@ const displayMessage = (message, speaker) => {
   const element = document.getElementById('messagesWrapper')
   if (speaker === 'user') {
     // append to DOM
-    $('#messagesUL').append(`<li><span class="speaker" data-id="userName1">${store.user.profile.userName}:</span> ${message}</li>`)
+    $('#messagesUL').append(`<li class="user-li"><span class="speaker" data-id="userName1">${store.user.profile.userName}:</span> ${message}</li>`)
     // clear form
     $('#chatInput').val('')
   } else {
@@ -226,7 +226,7 @@ const displayMessage = (message, speaker) => {
     }
     const appendMessage = function () {
       $('#typing').remove()
-      $('#messagesUL').append(`<li><span class="speaker">Fin:</span> <span class="fin-message">${message}</span></li>`)
+      $('#messagesUL').append(`<li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${message}</span></li>`)
       // scroll to bottom of div
       element.scrollTop = element.scrollHeight
     }
@@ -248,7 +248,7 @@ const googleSearchSuccess = (apiResponse) => {
     $('#typing').remove()
     // append search results
     $('#messagesUL').append(`
-      <li><span class="speaker">Fin:</span> <span class="fin-message">Below are the top 3 of ${apiResponse.searchInformation.totalResults} total search results for "${apiResponse.queries.request[0].searchTerms}", your majesty.</span>
+      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are the top 3 of ${apiResponse.searchInformation.totalResults} total search results for "${apiResponse.queries.request[0].searchTerms}", your majesty.</span>
       <br>
       <div class="results-wrapper">
         <div class="row" id="row1">
@@ -354,7 +354,7 @@ const displayGreeting = (name) => {
     }
     // append greeting
     $('#messagesUL').append(`
-      <li><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below is an abridged list of my skills.
+      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below is an abridged list of my skills.
       <br>
       <br>
       <span class="list-number">(1)</span> Quoting Chris
@@ -377,7 +377,6 @@ const displayGreeting = (name) => {
       <br>
       <span class="list-number">(10)</span> Searching the web
       <br></span>
-      <br>
       </li>
     `)
     // scroll to bottom of div
@@ -399,7 +398,7 @@ const displaySkills = () => {
     $('#typing').remove()
     // append skills
     $('#messagesUL').append(`
-      <li><span class="speaker">Fin:</span> <span class="fin-message">Below is an abridged list of my skills.
+      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below is an abridged list of my skills.
       <br>
       <br>
       <span class="list-number">(1)</span> Quoting Chris
@@ -422,7 +421,6 @@ const displaySkills = () => {
       <br>
       <span class="list-number">(10)</span> Searching the web
       <br></span>
-      <br>
       </li>
     `)
     // scroll to bottom of div

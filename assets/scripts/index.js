@@ -8,7 +8,6 @@ const io = require('socket.io-client')
 // no npm package; JS exists in the lib folder
 const bootstrap = require('../../lib/bootstrap-formhelpers-phone.js')
 
-
 $(() => {
   // establishing socket and emitting to dev and production API
   const socket = io(apiUrl)

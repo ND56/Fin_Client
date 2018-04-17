@@ -34,6 +34,7 @@ body {
   border: 1px solid black;
   color: black;
   background-color: white;
+  transition: background 0.3s ease-in-out;
 }
 
 .modal-button:hover {
@@ -78,6 +79,13 @@ footer {
   color: white !important;
 }
 
+.mini-comment-bubble {
+  font-size: 14px;
+  position: relative;
+  bottom: 72%;
+  right: 5%;
+}
+
 #user-email-dropdown {
   color: white;
 }
@@ -111,6 +119,15 @@ footer {
 
 // ----------------- Landing Page -----------------------------
 
+.comment-bubble {
+  font-size: 7em;
+  display: inline;
+  position: absolute;
+  color: black;
+  right: 27%;
+  top: 16%;
+}
+
 .landing-wrapper {
   // setting to height and width of the viewport
   height: 100vh;
@@ -124,24 +141,29 @@ footer {
   font-size: 23em;
   padding-top: 11%;
   margin: 0;
-  // font-family: 'Gugi', cursive;
+  font-family: 'Gugi', cursive;
   // font-family: 'Righteous', cursive;
   // font-family: 'Poiret One', cursive;
-  font-family: 'Libre Barcode 39 Text', cursive;
+  // font-family: 'Libre Barcode 39 Text', cursive;
 }
 
 .proceed-button {
   font-size: 1em;
   color: black;
   background-color: white;
-  border: 1px solid black;
+  border: 6px solid black;
   border-radius: 10px;
   padding: .5%;
+  // font-family: 'Source Code Pro', monospace;
+  font-family: 'Black Han Sans', sans-serif;
+  // font-family: 'Titan One', cursive;
+  // font-family: 'Holtwood One SC', serif;
+  transition: background 0.3s ease-in-out;
 }
 
 .proceed-button:hover {
   color: white;
-  background-color: $darker-gray;
+  background-color: black;
 }
 
 .proceed-button:focus {
@@ -150,12 +172,14 @@ footer {
 
 .register-toggle {
   color: $dark-gray;
-  font-family: 'Righteous', cursive;
+  // font-family: 'Righteous', cursive;
+  font-family: 'Source Code Pro', monospace;
   text-align: center;
   font-style: italic;
   font-size: 13px;
   margin-top: -6px;
   margin-bottom: -6px;
+  transition: background 0.3s ease-in-out;
 }
 
 .register-toggle:hover {
@@ -165,6 +189,21 @@ footer {
 
 // ----------------- Chat View --------------------------------
 
+#chatInput {
+  background-color: $dark-gray;
+  color: white !important;
+}
+
+.fin-li {
+  background: white;
+  color: black;
+}
+
+.user-li {
+  background: $dark-gray;
+  color: white;
+}
+
 .chat-view-wrapper {
   height: 100vh;
   width: 100vw;
@@ -173,6 +212,7 @@ footer {
 .delete-button {
   background-color: red;
   color: white;
+  transition: background 0.3s ease-in-out;
 }
 
 .delete-button:hover {
@@ -201,6 +241,7 @@ footer {
   border: 4px solid black;
   background-color: $darker-gray;
   color: white;
+  transition: background 0.3s ease-in-out;
 }
 
 .chat-input-button:hover {
@@ -227,11 +268,6 @@ button:focus {
   border-radius: 10px;
   border: 1px solid black;
   margin-bottom: 3px;
-}
-
-.messages-ul li:nth-child(odd) {
-  background: $dark-gray;
-  color: white;
 }
 
 .content-column {
@@ -326,6 +362,143 @@ button:focus {
 // ----------------- Other View -------------------------------
 
 // ----------------- Media Queries ----------------------------
+
+@media (max-width: 1191px) {
+  .comment-bubble {
+    right: 23%;
+    top: 15%;
+  }
+}
+
+@media (max-width: 1059px) {
+  .comment-bubble {
+    right: 20%;
+    top: 13%;
+  }
+}
+
+@media (max-width: 942px) {
+  .comment-bubble {
+    right: 17%;
+    top: 12%;
+  }
+}
+
+@media (max-width: 872px) {
+  .comment-bubble {
+    right: 14%;
+    top: 11%;
+  }
+}
+
+@media (max-width: 807px) {
+  .comment-bubble {
+    right: 17%;
+    top: 14%;
+    font-size: 6em;
+  }
+  .landing-header {
+    font-size: 20em;
+    padding-top: 17%;
+  }
+}
+
+@media (max-width: 738px) {
+  .comment-bubble {
+    right: 13%;
+  }
+}
+
+@media (max-width: 700px) {
+  .proceed-button {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 687px) {
+  .comment-bubble {
+    font-size: 5em;
+  }
+}
+
+@media (max-width: 642px) {
+  .comment-bubble {
+    right: 10%;
+  }
+}
+
+@media (max-width: 587px) {
+  .comment-bubble {
+    right: 13%;
+    top: 21%;
+    font-size: 4em;
+  }
+  .landing-header {
+    font-size: 18em;
+    padding-top: 28%;
+  }
+  .proceed-button {
+    border-width: 4px;
+  }
+}
+
+@media (max-width: 530px) {
+  .comment-bubble {
+    right: 10%;
+    top: 18%;
+  }
+}
+
+@media (max-width: 500px) {
+  .comment-bubble {
+    right: 16%;
+    top: 24%;
+    font-size: 3em;
+  }
+  .landing-header {
+    font-size: 15em;
+    padding-top: 36%;
+  }
+  .proceed-button {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 476px) {
+  .comment-bubble {
+    right: 14%;
+    top: 22%;
+  }
+}
+
+@media (max-width: 450px) {
+  .comment-bubble {
+    right: 18%;
+    top: 26%;
+    font-size: 2em;
+  }
+  .landing-header {
+    font-size: 13em;
+    padding-top: 42%;
+  }
+  .proceed-button {
+    border-width: 3px;
+  }
+}
+
+@media (max-width: 430px) {
+  .comment-bubble {
+    right: 16%;
+    top: 24%;
+  }
+}
+
+@media (max-width: 406px) {
+  .comment-bubble {
+    right: 13%;
+    top: 23%;
+  }
+}
 
 // ----------------- Animation-Related ------------------
 
