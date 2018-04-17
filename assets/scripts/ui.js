@@ -177,7 +177,6 @@ const deleteProfileFailure = (error) => {
 }
 
 const requestEditProfileModal = function () {
-  console.log(store.user.profile)
   $('#edit-profile-modal').modal('show')
   // clear form
   $('#profile-edit-form').each(function () {
@@ -189,7 +188,6 @@ const requestEditProfileModal = function () {
 }
 
 const editProfileSuccess = (apiResponse) => {
-  console.log(apiResponse)
   // update store
   store.user.profile.userName = $('#inputUsername20').val()
   store.user.profile.phone = $('#inputPhone20').val()
@@ -246,7 +244,6 @@ const googleSearchSuccess = (apiResponse) => {
     window.setTimeout(appendMessage, 2000) // was 3000, but I dropped it because I thought it was a little too long.
   }
   const appendMessage = function () {
-    console.log(apiResponse)
     $('#typing').remove()
     // append search results
     $('#messagesUL').append(`

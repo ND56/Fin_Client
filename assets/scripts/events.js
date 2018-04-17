@@ -109,7 +109,7 @@ const socketReceive = function (message) {
 }
 
 const googleAction = function (query) {
-  console.log('google: ', query)
+  // console.log('google: ', query)
   api.googleSearch(query)
     .then(ui.googleSearchSuccess)
     .catch(ui.googleSearchFailure)
