@@ -189,6 +189,16 @@ footer {
 
 // ----------------- Chat View --------------------------------
 
+.skill-list {
+  margin-top: .5%;
+  margin-left: 0.5%;
+  border-top: 2px solid $tangerine;
+  padding-top: 1.0%;
+  border-bottom: 2px solid $tangerine;
+  padding-bottom: 1%;
+  margin-bottom: .5%;
+}
+
 #chatInput {
   background-color: $dark-gray;
   color: white !important;

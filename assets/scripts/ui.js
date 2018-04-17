@@ -356,7 +356,7 @@ const displayGreeting = (name) => {
     $('#messagesUL').append(`
       <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below is an abridged list of my skills.
       <br>
-      <br>
+      <div class="skill-list">
       <span class="list-number">(1)</span> Quoting Chris
       <br>
       <span class="list-number">(2)</span> Telling jokes
@@ -376,7 +376,7 @@ const displayGreeting = (name) => {
       <span class="list-number">(9)</span> Reporting on the weather
       <br>
       <span class="list-number">(10)</span> Searching the web
-      <br></span>
+      <br></div></span>
       </li>
     `)
     // scroll to bottom of div
@@ -400,7 +400,7 @@ const displaySkills = () => {
     $('#messagesUL').append(`
       <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below is an abridged list of my skills.
       <br>
-      <br>
+      <div class="skill-list">
       <span class="list-number">(1)</span> Quoting Chris
       <br>
       <span class="list-number">(2)</span> Telling jokes
@@ -420,7 +420,7 @@ const displaySkills = () => {
       <span class="list-number">(9)</span> Reporting on the weather
       <br>
       <span class="list-number">(10)</span> Searching the web
-      <br></span>
+      <br></div></span>
       </li>
     `)
     // scroll to bottom of div
