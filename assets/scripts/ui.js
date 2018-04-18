@@ -4,6 +4,7 @@
 const notification = require('../../lib/notifications.js')
 // used to store information for DOM manipulation, etc.
 const store = require('./store.js')
+const templateGoogleResponse = require('./templates/google-readout.handlebars')
 
 const setButtonText = () => {
   $(window).resize(function () {
@@ -258,73 +259,58 @@ const googleSearchSuccess = (apiResponse) => {
   }
   const appendMessage = function () {
     $('#typing').remove()
-    // append search results
-    $('#messagesUL').append(`
-      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are the top 3 of ${apiResponse.searchInformation.totalResults} total search results for "${apiResponse.queries.request[0].searchTerms}," your majesty.</span>
-      <br>
-      <div class="results-wrapper">
-        <div class="row" id="row1">
-          <div class="col-xs-3 search-image" data-id="image-${apiResponse.items[0].cacheId}"></div>
-          <div class="col-xs-1 search-space"></div>
-          <div class="col-xs-8 search-info">
-            <div class="row"><div class="col-xs-12 search-title" id="search-title-1">${apiResponse.items[0].htmlTitle}</div></div>
-            <div class="row"><div class="col-xs-12 search-link"><a id="search-link-1" href="${apiResponse.items[0].link}">${apiResponse.items[0].link}</a></div></div>
-            <div class="row"><div class="col-xs-12 search-snippet" id="search-snippet-1">${apiResponse.items[0].htmlSnippet}</div></div>
-          </div>
+    // test with handlebars
+    console.log(apiResponse.items)
+    if (apiResponse.items === undefined) {
+      $('#messagesUL').append(`
+        <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">There were zero search results for "${apiResponse.queries.request[0].searchTerms}." If you would like to try again, start a new google search and re-phrase your query.</span></li>
+      `)
+      // scroll to bottom of div
+      element.scrollTop = element.scrollHeight
+    } else {
+      const googleHTML = templateGoogleResponse({ results: apiResponse.items })
+      // append search results
+      $('#messagesUL').append(`
+        <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are the top 3 of ${apiResponse.searchInformation.totalResults} total search results for "${apiResponse.queries.request[0].searchTerms}," your majesty.</span>
+        <br>
+        <div class="results-wrapper">
+        ${googleHTML}
         </div>
-        <div class="row" id="row2">
-          <div class="col-xs-3 search-image" data-id="image-${apiResponse.items[1].cacheId}"></div>
-          <div class="col-xs-1 search-space"></div>
-          <div class="col-xs-8 search-info">
-            <div class="row"><div class="col-xs-12 search-title" id="search-title-2">${apiResponse.items[1].htmlTitle}</div></div>
-            <div class="row"><div class="col-xs-12 search-link"><a id="search-link-2" href="${apiResponse.items[1].link}">${apiResponse.items[1].link}</a></div></div>
-            <div class="row"><div class="col-xs-12 search-snippet" id="search-snippet-2">${apiResponse.items[1].htmlSnippet}</div></div>
-          </div>
-        </div>
-        <div class="row" id="row3">
-          <div class="col-xs-3 search-image" data-id="image-${apiResponse.items[2].cacheId}"></div>
-          <div class="col-xs-1 search-space"></div>
-          <div class="col-xs-8 search-info">
-            <div class="row"><div class="col-xs-12 search-title" id="search-title-3">${apiResponse.items[2].htmlTitle}</div></div>
-            <div class="row"><div class="col-xs-12 search-link"><a id="search-link-3" href="${apiResponse.items[2].link}">${apiResponse.items[2].link}</a></div></div>
-            <div class="row"><div class="col-xs-12 search-snippet" id="search-snippet-3">${apiResponse.items[2].htmlSnippet}</div></div>
-          </div>
-        </div>
-      </div>
-      </li>
-    `)
-    // if image 1 exists, add it, else add stock image
-    if (apiResponse.items[0].pagemap) {
-      if (apiResponse.items[0].pagemap.cse_image) {
-        $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(' + apiResponse.items[0].pagemap.cse_image[0].src + ')')
+        </li>
+      `)
+      // if image 1 exists, add it, else add stock image
+      if (apiResponse.items[0].pagemap) {
+        if (apiResponse.items[0].pagemap.cse_image) {
+          $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(' + apiResponse.items[0].pagemap.cse_image[0].src + ')')
+        } else {
+          $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+        }
+      } else {
+        $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+      }
+      // if image 2 exists, add it, else add stock image
+      if (apiResponse.items[1].pagemap) {
+        if (apiResponse.items[1].pagemap.cse_image) {
+          $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(' + apiResponse.items[1].pagemap.cse_image[0].src + ')')
+        } else {
+          $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+        }
       } else {
         $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
       }
-    } else {
-      $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
-    }
-    // if image 2 exists, add it, else add stock image
-    if (apiResponse.items[1].pagemap) {
-      if (apiResponse.items[1].pagemap.cse_image) {
-        $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(' + apiResponse.items[1].pagemap.cse_image[0].src + ')')
-      } else {
-        $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
-      }
-    } else {
-      $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
-    }
-    // if image 3 exists, add it, else add stock image
-    if (apiResponse.items[2].pagemap) {
-      if (apiResponse.items[2].pagemap.cse_image) {
-        $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(' + apiResponse.items[2].pagemap.cse_image[0].src + ')')
+      // if image 3 exists, add it, else add stock image
+      if (apiResponse.items[2].pagemap) {
+        if (apiResponse.items[2].pagemap.cse_image) {
+          $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(' + apiResponse.items[2].pagemap.cse_image[0].src + ')')
+        } else {
+          $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+        }
       } else {
         $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
       }
-    } else {
-      $("div[data-id='image-" + apiResponse.items[2].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+      // scroll to bottom of div
+      element.scrollTop = element.scrollHeight
     }
-    // scroll to bottom of div
-    element.scrollTop = element.scrollHeight
   }
   delayedMessage()
   // scroll to bottom of div

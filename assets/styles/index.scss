@@ -346,7 +346,6 @@ button:focus {
 // ----------------- Google Search Result -------------------------------
 
 .results-wrapper {
-  margin-top: 1vh;
   height: 60vh;
   overflow: auto;
 }
@@ -380,14 +379,20 @@ button:focus {
 .search-snippet {
   height: 11vh;
   font-size: 12px;
-  overflow-x: scroll;
+  // overflow-x: scroll; // removed because handlebars renders stranegly
   overflow-y: hidden;
-  white-space: nowrap;
+  // white-space: nowrap; // removed because handlebars renders stranegly
 }
 
 #row1,
-#row2 {
-  margin-bottom: 1vh;
+#row2,
+#row3 {
+  margin-top: 1vh;
+  // margin-bottom: 1vh;
+}
+
+.google-row {
+  margin-top: 1vh;
 }
 
 // ----------------- Other View -------------------------------
