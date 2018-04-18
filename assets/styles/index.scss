@@ -154,32 +154,35 @@ footer {
   padding-top: 11%;
   margin: 0;
   font-family: 'Gugi', cursive;
-  // font-family: 'Righteous', cursive;
-  // font-family: 'Poiret One', cursive;
-  // font-family: 'Libre Barcode 39 Text', cursive;
 }
 
 .proceed-button {
-  font-size: 1em;
-  color: black;
-  background-color: white;
-  // border: 6px solid black;
-  border: 6px solid white;
+  background: none;
+  border: 2px solid;
   border-radius: 10px;
-  padding: .5%;
-  // font-family: 'Source Code Pro', monospace;
-  font-family: 'Black Han Sans', sans-serif;
-  // font-family: 'Titan One', cursive;
-  // font-family: 'Holtwood One SC', serif;
-  transition: background 0.3s ease-in-out;
-  // transition: border-color 0.3s ease-in-out;
+  border-bottom-width: 4px;
+  font: inherit;
+  letter-spacing: inherit;
+  margin: 1em;
+  padding: .75%;
+  font-size: 16px;
+  text-transform: inherit;
+  transition: color 1s;
+  $color: #9c89f7;
+  color: white;
+
+ &:hover {
+   animation: halftone 1s forwards;
+   background: radial-gradient(circle, white 0.2em, transparent 0.25em) 0 0 / 1.25em 1.25em
+             , radial-gradient(circle, white 0.2em, transparent 0.25em) 6.25em 6.25em / 1.25em 1.25em;
+   color: adjust-hue(black,180);
+ }
 }
 
-.proceed-button:hover {
-  // color: white;
-  background-color: $darker-gray;
-  // background-color: $tangerine;
-  // border-color: $darker-gray;
+@keyframes halftone {
+ 100% {
+   background-size: 2.375em 2.375em, 0.1em 0.1em;
+ }
 }
 
 .proceed-button:focus {
@@ -199,7 +202,8 @@ footer {
 }
 
 .register-toggle:hover {
-  color: black;
+  // color: black;
+  color: $tangerine;
   cursor: pointer;
 }
 
@@ -444,9 +448,10 @@ button:focus {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 723px) {
   .proceed-button {
-    font-size: 11px;
+    padding: 1%;
+    font-size: 14px;
   }
 }
 
@@ -472,9 +477,6 @@ button:focus {
     font-size: 18em;
     padding-top: 28%;
   }
-  .proceed-button {
-    border-width: 4px;
-  }
 }
 
 @media (max-width: 530px) {
@@ -495,7 +497,8 @@ button:focus {
     padding-top: 36%;
   }
   .proceed-button {
-    font-size: 10px;
+    font-size: 12px;
+    padding: 1.25%;
   }
 }
 
@@ -521,9 +524,6 @@ button:focus {
   .landing-header {
     font-size: 13em;
     padding-top: 42%;
-  }
-  .proceed-button {
-    border-width: 3px;
   }
 }
 
