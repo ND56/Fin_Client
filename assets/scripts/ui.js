@@ -5,6 +5,7 @@ const notification = require('../../lib/notifications.js')
 // used to store information for DOM manipulation, etc.
 const store = require('./store.js')
 const templateGoogleResponse = require('./templates/google-readout.handlebars')
+const templateSpotifyResponse = require('./templates/spotify-readout.handlebars')
 
 const setButtonText = () => {
   $(window).resize(function () {
@@ -250,6 +251,128 @@ const displayMessage = (message, speaker) => {
   element.scrollTop = element.scrollHeight
 }
 
+const displaySpotify = (results) => {
+  const element = document.getElementById('messagesWrapper')
+  // delay Fin's message to give appearance Fin is "typing"
+  const delayedMessage = function () {
+    $('#messagesUL').append(`<li id="typing" class="typing"><span>Fin is typing...</li>`)
+    window.setTimeout(appendMessage, 2000) // was 3000, but I dropped it because I thought it was a little too long.
+  }
+  const appendMessage = function () {
+    $('#typing').remove()
+    // if no results
+    if (results.items === undefined || results.items.length === 0) {
+      $('#messagesUL').append(`
+        <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">No Spotify playlists match that genre. If you would like to try again, start a new playlist request and re-phrase your query.</span></li>
+      `)
+      // scroll to bottom of div
+      element.scrollTop = element.scrollHeight
+    } else if (results.items.length === 3) { // if there are 3 results
+      const spotifyHTML = templateSpotifyResponse({ results: results.items })
+      // append search results
+      $('#messagesUL').append(`
+        <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are 3 of ${results.total} total Spotify playlists for your genre.</span>
+        <br>
+        <div class="results-wrapper">
+        ${spotifyHTML}
+        </div>
+        </li>
+      `)
+      // if image 1 exists, add it, else add stock image
+      if (results.items[0].images) {
+        if (results.items[0].images[0].url) {
+          $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(' + results.items[0].images[0].url + ')')
+        } else {
+          $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+        }
+      } else {
+        $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+      }
+      // if image 2 exists, add it, else add stock image
+      if (results.items[1].images) {
+        if (results.items[1].images[0].url) {
+          $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(' + results.items[1].images[0].url + ')')
+        } else {
+          $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+        }
+      } else {
+        $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+      }
+      // if image 3 exists, add it, else add stock image
+      if (results.items[2].images) {
+        if (results.items[2].images[0].url) {
+          $("div[data-id='image-" + results.items[2].id + "']").css('background-image', 'url(' + results.items[2].images[0].url + ')')
+        } else {
+          $("div[data-id='image-" + results.items[2].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+        }
+      } else {
+        $("div[data-id='image-" + results.items[2].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+      }
+      // scroll to bottom of div
+      element.scrollTop = element.scrollHeight
+    } else if (results.items.length === 2) { // two results
+      const spotifyHTML = templateSpotifyResponse({ results: results.items })
+      // append search results
+      $('#messagesUL').append(`
+        <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are the only 2 Spotify playlists that matched your genre.</span>
+        <br>
+        <div class="results-wrapper">
+        ${spotifyHTML}
+        </div>
+        </li>
+      `)
+      // if image 1 exists, add it, else add stock image
+      if (results.items[0].images) {
+        if (results.items[0].images[0].url) {
+          $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(' + results.items[0].images[0].url + ')')
+        } else {
+          $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+        }
+      } else {
+        $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+      }
+      // if image 2 exists, add it, else add stock image
+      if (results.items[1].images) {
+        if (results.items[1].images[0].url) {
+          $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(' + results.items[1].images[0].url + ')')
+        } else {
+          $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+        }
+      } else {
+        $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+      }
+      // scroll to bottom of div
+      element.scrollTop = element.scrollHeight
+    } else if (results.items.length === 1) { // one result
+      const spotifyHTML = templateSpotifyResponse({ results: results.items })
+      // append search results
+      $('#messagesUL').append(`
+        <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below is the only Spotify playlist that matched your genre.</span>
+        <br>
+        <div class="results-wrapper">
+        ${spotifyHTML}
+        </div>
+        </li>
+      `)
+      // if image 1 exists, add it, else add stock image
+      if (results.items[0].images) {
+        if (results.items[0].images[0].url) {
+          $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(' + results.items[0].images[0].url + ')')
+        } else {
+          $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+        }
+      } else {
+        $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+      }
+      // scroll to bottom of div
+      element.scrollTop = element.scrollHeight
+    }
+  }
+  delayedMessage()
+  // scroll to bottom of div
+  element.scrollTop = element.scrollHeight
+}
+
 const googleSearchSuccess = (apiResponse) => {
   const element = document.getElementById('messagesWrapper')
   // delay Fin's message to give appearance Fin is "typing"
@@ -283,7 +406,7 @@ const googleSearchSuccess = (apiResponse) => {
         if (apiResponse.items[0].pagemap.cse_image) {
           $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(' + apiResponse.items[0].pagemap.cse_image[0].src + ')')
         } else {
-          $("div[data-id='image-" + apiResponse.items[1].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
+          $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
         }
       } else {
         $("div[data-id='image-" + apiResponse.items[0].cacheId + "']").css('background-image', 'url(https://imgur.com/zAwMFuj.png)')
@@ -373,6 +496,8 @@ const displayGreeting = (name) => {
       <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
       <br>
+      <span class="list-number"><i class="fas fa-cog"></i></span> Providing playlist recommendations
+      <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Searching the web
       <br></div></span>
       </li>
@@ -417,6 +542,8 @@ const displaySkills = () => {
       <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
       <br>
+      <span class="list-number"><i class="fas fa-cog"></i></span> Providing playlist recommendations
+      <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Searching the web
       <br></div></span>
       </li>
@@ -451,5 +578,6 @@ module.exports = {
   googleSearchFailure,
   displayGreeting,
   displaySkills,
-  setButtonText
+  setButtonText,
+  displaySpotify
 }

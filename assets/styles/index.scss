@@ -346,7 +346,7 @@ button:focus {
 // ----------------- Google Search Result -------------------------------
 
 .results-wrapper {
-  height: 60vh;
+  max-height: 60vh;
   overflow: auto;
 }
 
@@ -370,7 +370,7 @@ button:focus {
 
 .search-link {
   height: 2vh;
-  overflow-y: hidden;
+  overflow-x: hidden;
   margin-bottom: 1vh;
   font-size: 11px;
   color: blue;
@@ -395,7 +395,15 @@ button:focus {
   margin-top: 1vh;
 }
 
-// ----------------- Other View -------------------------------
+// ----------------- Spotify Search Result -------------------------------
+
+.spotify-title {
+  margin-top: 4vh;
+}
+
+.spotify-tracks {
+  height: 7vh;
+}
 
 // ----------------- Other View -------------------------------
 

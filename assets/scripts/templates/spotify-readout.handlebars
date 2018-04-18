@@ -1,0 +1,11 @@
+{{#each results as |item|}}
+  <div class="row google-row">
+    <div class="col-xs-3 search-image" data-id="image-{{item.id}}"></div>
+    <div class="col-xs-1 search-space"></div>
+    <div class="col-xs-8 search-info">
+      <div class="row"><div class="col-xs-12 search-title spotify-title" id="search-title-{{item.id}}">{{item.name}}</div></div>
+      <div class="row"><div class="col-xs-12 search-link"><a id="search-link-{{item.id}}" href="{{item.external_urls.spotify}}" target="_blank">{{item.external_urls.spotify}}</a></div></div>
+      <div class="row"><div class="col-xs-12 search-snippet spotify-tracks" id="search-snippet-{{item.id}}">Total Tracks: {{item.tracks.total}}</div></div>
+    </div>
+  </div>
+{{/each}}

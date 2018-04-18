@@ -59,6 +59,9 @@ $(() => {
   socket.on('skills', function (query) {
     events.onSkillsRequest(query)
   })
+  socket.on('spotify', function (results) {
+    events.onSpotifyRequest(results)
+  })
 
   // socket connection error handlers
   socket.on('connect_error', function (error) {
