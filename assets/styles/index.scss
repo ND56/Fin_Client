@@ -84,6 +84,7 @@ footer {
   position: relative;
   bottom: 72%;
   right: 5%;
+  // color: $tangerine;
 }
 
 #user-email-dropdown {
@@ -133,6 +134,7 @@ footer {
   position: absolute;
   // color: black;
   color: white;
+  // color: $tangerine;
   right: 27%;
   top: 16%;
 }
@@ -176,6 +178,7 @@ footer {
 .proceed-button:hover {
   // color: white;
   background-color: $darker-gray;
+  // background-color: $tangerine;
   // border-color: $darker-gray;
 }
 
@@ -205,9 +208,9 @@ footer {
 .skill-list {
   margin-top: .5%;
   margin-left: 0.5%;
-  border-top: 2px solid $tangerine;
+  // border-top: 2px solid $tangerine;
   padding-top: 1.0%;
-  border-bottom: 2px solid $tangerine;
+  // border-bottom: 2px solid $tangerine;
   padding-bottom: 1%;
   margin-bottom: .5%;
 }
@@ -268,7 +271,8 @@ footer {
 }
 
 .chat-input-button:hover {
-  background-color: white;
+  // background-color: white;
+  background-color: $tangerine;
   color: black;
 }
 

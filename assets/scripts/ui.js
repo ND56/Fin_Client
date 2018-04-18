@@ -247,7 +247,7 @@ const googleSearchSuccess = (apiResponse) => {
     $('#typing').remove()
     // append search results
     $('#messagesUL').append(`
-      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are the top 3 of ${apiResponse.searchInformation.totalResults} total search results for "${apiResponse.queries.request[0].searchTerms}", your majesty.</span>
+      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are the top 3 of ${apiResponse.searchInformation.totalResults} total search results for "${apiResponse.queries.request[0].searchTerms}," your majesty.</span>
       <br>
       <div class="results-wrapper">
         <div class="row" id="row1">
@@ -356,25 +356,25 @@ const displayGreeting = (name) => {
       <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below is an abridged list of my skills.
       <br>
       <div class="skill-list">
-      <span class="list-number">(1)</span> Quoting Chris
+      <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
       <br>
-      <span class="list-number">(2)</span> Telling jokes
+      <span class="list-number"><i class="fas fa-cog"></i></span> Telling jokes
       <br>
-      <span class="list-number">(3)</span> Musing on the meaning of life
+      <span class="list-number"><i class="fas fa-cog"></i></span> Musing on the meaning of life
       <br>
-      <span class="list-number">(4)</span> Emulating fox noises
+      <span class="list-number"><i class="fas fa-cog"></i></span> Emulating fox noises
       <br>
-      <span class="list-number">(5)</span> Engaging in simple conversation
+      <span class="list-number"><i class="fas fa-cog"></i></span> Engaging in simple conversation
       <br>
-      <span class="list-number">(6)</span> Sharing random facts
+      <span class="list-number"><i class="fas fa-cog"></i></span> Sharing random facts
       <br>
-      <span class="list-number">(7)</span> Fluency in over six million forms of communication
+      <span class="list-number"><i class="fas fa-cog"></i></span> Fluency in over six million forms of communication
       <br>
-      <span class="list-number">(8)</span> Sending messages
+      <span class="list-number"><i class="fas fa-cog"></i></span> Sending messages
       <br>
-      <span class="list-number">(9)</span> Reporting on the weather
+      <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
       <br>
-      <span class="list-number">(10)</span> Searching the web
+      <span class="list-number"><i class="fas fa-cog"></i></span> Searching the web
       <br></div></span>
       </li>
     `)
@@ -400,25 +400,25 @@ const displaySkills = () => {
       <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below is an abridged list of my skills.
       <br>
       <div class="skill-list">
-      <span class="list-number">(1)</span> Quoting Chris
+      <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
       <br>
-      <span class="list-number">(2)</span> Telling jokes
+      <span class="list-number"><i class="fas fa-cog"></i></span> Telling jokes
       <br>
-      <span class="list-number">(3)</span> Musing on the meaning of life
+      <span class="list-number"><i class="fas fa-cog"></i></span> Musing on the meaning of life
       <br>
-      <span class="list-number">(4)</span> Emulating fox noises
+      <span class="list-number"><i class="fas fa-cog"></i></span> Emulating fox noises
       <br>
-      <span class="list-number">(5)</span> Engaging in simple conversation
+      <span class="list-number"><i class="fas fa-cog"></i></span> Engaging in simple conversation
       <br>
-      <span class="list-number">(6)</span> Sharing random facts
+      <span class="list-number"><i class="fas fa-cog"></i></span> Sharing random facts
       <br>
-      <span class="list-number">(7)</span> Fluency in over six million forms of communication
+      <span class="list-number"><i class="fas fa-cog"></i></span> Fluency in over six million forms of communication
       <br>
-      <span class="list-number">(8)</span> Sending messages
+      <span class="list-number"><i class="fas fa-cog"></i></span> Sending messages
       <br>
-      <span class="list-number">(9)</span> Reporting on the weather
+      <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
       <br>
-      <span class="list-number">(10)</span> Searching the web
+      <span class="list-number"><i class="fas fa-cog"></i></span> Searching the web
       <br></div></span>
       </li>
     `)
