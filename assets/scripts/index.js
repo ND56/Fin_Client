@@ -21,6 +21,8 @@ $(() => {
   $('[data-toggle="tooltip"]').tooltip()
   // bootstrap form helper
   bootstrap.bootstrapPhoneHelper()
+  // change chat button based on screen size
+  ui.setButtonText()
 
   // landing page event handlers
   $('#log-in-modal-register-toggle-button').on('click', events.onToggleRegister)

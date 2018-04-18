@@ -262,6 +262,8 @@ footer {
 }
 
 .chat-input-button {
+  font-family: 'Poiret One', cursive;
+  font-size: 21px;
   height: 5vh;
   border-radius: 10px;
   border: 4px solid black;
@@ -411,6 +413,12 @@ button:focus {
   }
 }
 
+@media (max-width: 924px) {
+  .chat-input-button {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 872px) {
   .comment-bubble {
     right: 14%;
@@ -491,6 +499,12 @@ button:focus {
   }
 }
 
+@media (max-width: 485px) {
+  .chat-input-button {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 476px) {
   .comment-bubble {
     right: 14%;
@@ -513,6 +527,12 @@ button:focus {
   }
 }
 
+@media (max-width: 435px) {
+  .chat-input-button {
+    padding-left: 12px;
+  }
+}
+
 @media (max-width: 430px) {
   .comment-bubble {
     right: 16%;
@@ -524,6 +544,12 @@ button:focus {
   .comment-bubble {
     right: 13%;
     top: 23%;
+  }
+}
+
+@media (max-width: 400px) {
+  .chat-input-button {
+    padding-left: 11px;
   }
 }
 

@@ -5,6 +5,19 @@ const notification = require('../../lib/notifications.js')
 // used to store information for DOM manipulation, etc.
 const store = require('./store.js')
 
+const setButtonText = () => {
+  $(window).resize(function () {
+    // fires each time the window is resized
+    if ($(window).width() < 657) {
+      $('#chat-input-button').text('')
+      $('#chat-input-button').append('<i class="far fa-share-square"></i>')
+    } else {
+      $('#chat-input-button').empty()
+      $('#chat-input-button').text('Send')
+    }
+  }).resize() // simulates a resize to trigger the initial run.
+}
+
 const registerSuccess = function () {
   // clear form
   $('#register-form').each(function () {
@@ -451,5 +464,6 @@ module.exports = {
   googleSearchSuccess,
   googleSearchFailure,
   displayGreeting,
-  displaySkills
+  displaySkills,
+  setButtonText
 }
