@@ -474,34 +474,39 @@ const displayGreeting = (name) => {
         break
     }
     // append greeting
-    $('#messagesUL').append(`
-      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below are some of my skills. You can view this list again at any time, just ask!
-      <br>
-      <div class="skill-list">
-      <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Telling jokes
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Musing on the meaning of life
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Emulating fox noises
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Engaging in simple conversation
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Sharing random facts
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Fluency in over six million forms of communication
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Sending messages
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Providing playlist recommendations
-      <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Searching the web
-      <br></div></span>
-      </li>
-    `)
+    console.log(name)
+    if (name === 'Apologies, my limited exposure to humans has rendered me somewhat ignorant. I don\'t currently recognize that as a name, but this interaction will help me to learn. For now, do you perhaps have a more common appellation I might refer to you by?' || name === 'Again, I apologize. I still didn\'t recognize that as a name. Please bear with me, I\'m still learning! For now, could you try entering a different name?' || name === 'Again, please try entering a different name.') {
+      $('#messagesUL').append(`<li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${name}</span></li>`)
+    } else {
+      $('#messagesUL').append(`
+        <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below are some of my skills. You can view this list again at any time, just ask!
+        <br>
+        <div class="skill-list">
+        <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Telling jokes
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Musing on the meaning of life
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Emulating fox noises
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Engaging in simple conversation
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Sharing random facts
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Fluency in over six million forms of communication
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Sending messages
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Providing playlist recommendations
+        <br>
+        <span class="list-number"><i class="fas fa-cog"></i></span> Searching the web
+        <br></div></span>
+        </li>
+      `)
+    }
     // scroll to bottom of div
     element.scrollTop = element.scrollHeight
   }
