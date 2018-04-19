@@ -44,9 +44,9 @@ $(() => {
   })
 
   // incoming socket event handlers
-  socket.on('connection notice', function (message) {
-    console.log(message) // deliberately keeping this
-  })
+  // socket.on('connection notice', function (message) {
+  //   console.log(message)
+  // })
   socket.on('message', function (message) {
     events.socketReceive(message)
   })
@@ -64,10 +64,10 @@ $(() => {
   })
 
   // socket connection error handlers
-  socket.on('connect_error', function (error) {
-    console.log('socket connection error is', error) // deliberately keeping this
-  })
-  socket.on('error', function (error) {
-    console.log('socket error is', error) // deliberately keeping this
-  })
+  // socket.on('connect_error', function (error) {
+  //   console.log('socket connection error is', error)
+  // })
+  // socket.on('error', function (error) {
+  //   console.log('socket error is', error)
+  // })
 })

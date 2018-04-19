@@ -146,10 +146,7 @@ const onSkillsRequest = () => {
 }
 
 const onSpotifyRequest = (results) => {
-  console.log(results)
-  // console.log(results.items[0].external_urls.spotify)
-  // console.log(results.items[1].external_urls.spotify)
-  // console.log(results.items[2].external_urls.spotify)
+  // console.log(results)
   ui.displaySpotify(results)
 }
 

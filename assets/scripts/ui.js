@@ -383,7 +383,6 @@ const googleSearchSuccess = (apiResponse) => {
   const appendMessage = function () {
     $('#typing').remove()
     // test with handlebars
-    console.log(apiResponse.items)
     if (apiResponse.items === undefined) {
       $('#messagesUL').append(`
         <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">There were zero search results for "${apiResponse.queries.request[0].searchTerms}." If you would like to try again, start a new google search and re-phrase your query.</span></li>
@@ -474,7 +473,6 @@ const displayGreeting = (name) => {
         break
     }
     // append greeting
-    console.log(name)
     if (name === 'Apologies, my limited exposure to humans has rendered me somewhat ignorant. I don\'t currently recognize that as a name, but this interaction will help me to learn. For now, do you perhaps have a more common appellation I might refer to you by?' || name === 'Again, I apologize. I still didn\'t recognize that as a name. Please bear with me, I\'m still learning! For now, could you try entering a different name?' || name === 'Again, please try entering a different name.') {
       $('#messagesUL').append(`<li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${name}</span></li>`)
     } else {
