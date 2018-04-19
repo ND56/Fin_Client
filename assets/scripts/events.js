@@ -23,36 +23,51 @@ const onToggleRegister = function (event) {
 const onRegister = function (event) {
   event.preventDefault()
   const registerData = getFormFields(event.target)
-  api.registerUser(registerData)
-    .then(ui.registerSuccess)
-    .catch(ui.registerFailure)
+  const attemptedEmail = $('#inputEmail2').val()
+  if (!attemptedEmail.match(/[<>]/)) {
+    api.registerUser(registerData)
+      .then(ui.registerSuccess)
+      .catch(ui.registerFailure)
+  } else {
+    ui.rejectUserInput()
+  }
 }
 
 const onLogIn = function (event) {
   event.preventDefault()
   const logInData = getFormFields(event.target)
-  api.logIn(logInData)
-    .then(apiResponse => {
-      store.user = apiResponse.user
-      return apiResponse
-    })
-    // request user's profile
-    .then(api.findProfile)
-    // add result to store object
-    .then(apiResponse => {
-      store.user.profile = apiResponse.profile
-    })
-    // proceed with log in
-    .then(ui.logInSuccess)
-    .catch(ui.logInFailure)
+  const attemptedEmail = $('#inputEmail1').val()
+  if (!attemptedEmail.match(/[<>]/)) {
+    api.logIn(logInData)
+      .then(apiResponse => {
+        store.user = apiResponse.user
+        return apiResponse
+      })
+      // request user's profile
+      .then(api.findProfile)
+      // add result to store object
+      .then(apiResponse => {
+        store.user.profile = apiResponse.profile
+      })
+      // proceed with log in
+      .then(ui.logInSuccess)
+      .catch(ui.logInFailure)
+  } else {
+    ui.rejectUserInput()
+  }
 }
 
 const onBuildProfile = function (event) {
   event.preventDefault()
   const profileData = getFormFields(event.target)
-  api.createProfile(profileData)
-    .then(ui.buildProfileSuccess)
-    .catch(ui.buildProfileFailure)
+  const attemptedUsername = $('#inputUsername1').val()
+  if (!attemptedUsername.match(/[<>]/)) {
+    api.createProfile(profileData)
+      .then(ui.buildProfileSuccess)
+      .catch(ui.buildProfileFailure)
+  } else {
+    ui.rejectUserInput()
+  }
 }
 
 const onLogOut = (event) => {
@@ -81,22 +96,29 @@ const onDeleteProfile = function (event) {
 const onEditProfile = (event) => {
   event.preventDefault()
   const editProfileData = getFormFields(event.target)
-  api.editProfile(editProfileData)
-    .then(ui.editProfileSuccess)
-    .catch(ui.editProfileFailure)
+  const attemptedProfile = $('#inputUsername20').val()
+  if (!attemptedProfile.match(/[<>]/)) {
+    api.editProfile(editProfileData)
+      .then(ui.editProfileSuccess)
+      .catch(ui.editProfileFailure)
+  } else {
+    ui.rejectUserInput()
+  }
 }
 
 const submitMessage = (event, socket) => {
   event.preventDefault()
   const userMessage = $('#chatInput').val()
-  // append message to the DOM
-  ui.displayMessage(userMessage, 'user')
-  // send the message to the API
-  // sends user ID to create unique dialogflow session
-  socket.emit('message', {
-    message: userMessage,
-    uniqueId: store.user._id
-  })
+  // check for XSS issues before appending input
+  if (!userMessage.match(/[<>]/)) {
+    ui.displayMessage(userMessage, 'user')
+    socket.emit('message', {
+      message: userMessage,
+      uniqueId: store.user._id
+    })
+  } else {
+    ui.rejectUserInput()
+  }
 }
 
 const socketReceive = function (message) {

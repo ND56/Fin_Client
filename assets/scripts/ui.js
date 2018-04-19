@@ -475,7 +475,7 @@ const displayGreeting = (name) => {
     }
     // append greeting
     $('#messagesUL').append(`
-      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below is an abridged list of my skills.
+      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below are some of my skills. You can view this list again at any time, just ask!
       <br>
       <div class="skill-list">
       <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
@@ -521,7 +521,7 @@ const displaySkills = () => {
     $('#typing').remove()
     // append skills
     $('#messagesUL').append(`
-      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below is an abridged list of my skills.
+      <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are some of skills.
       <br>
       <div class="skill-list">
       <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
@@ -556,6 +556,31 @@ const displaySkills = () => {
   element.scrollTop = element.scrollHeight
 }
 
+const rejectUserInput = () => {
+  // clear register form
+  $('#register-form').each(function () {
+    this.reset()
+  })
+  // clear log-in form
+  $('#log-in-form').each(function () {
+    this.reset()
+  })
+  // clear build profile form
+  $('#profile-build-form').each(function () {
+    this.reset()
+  })
+  // clear chat input
+  $('#chatInput').val('')
+  // fix edit profile form
+  if (store.user) {
+    if (store.user.profile) {
+      $('#inputUsername20').val(store.user.profile.userName)
+    }
+  }
+  // rejection notification
+  notification.tempToast('warning', `User Input Rejected`, `You've entered a disallowed character. Please enter only alphanumeric characters.`, 'red', 'black', 'red', 8000)
+}
+
 module.exports = {
   registerSuccess,
   registerFailure,
@@ -579,5 +604,6 @@ module.exports = {
   displayGreeting,
   displaySkills,
   setButtonText,
-  displaySpotify
+  displaySpotify,
+  rejectUserInput
 }
