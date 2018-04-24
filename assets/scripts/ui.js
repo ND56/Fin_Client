@@ -480,8 +480,6 @@ const displayGreeting = (name) => {
         <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">${finGreeting}. Below are some of my skills. You can view this list again at any time, just ask!
         <br>
         <div class="skill-list">
-        <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
-        <br>
         <span class="list-number"><i class="fas fa-cog"></i></span> Telling jokes
         <br>
         <span class="list-number"><i class="fas fa-cog"></i></span> Musing on the meaning of life
@@ -527,8 +525,6 @@ const displaySkills = () => {
       <li class="fin-li"><span class="speaker">Fin:</span> <span class="fin-message">Below are some of skills.
       <br>
       <div class="skill-list">
-      <span class="list-number"><i class="fas fa-cog"></i></span> Quoting Chris
-      <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Telling jokes
       <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Musing on the meaning of life
