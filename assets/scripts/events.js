@@ -146,7 +146,7 @@ const onSkillsRequest = () => {
 }
 
 const onSpotifyRequest = (results) => {
-  console.log(results)
+  // console.log(results)
   ui.displaySpotify(results)
 }
 
