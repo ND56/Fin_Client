@@ -280,8 +280,12 @@ const displaySpotify = (results) => {
       `)
       // if image 1 exists, add it, else add stock image
       if (results.items[0].images) {
-        if (results.items[0].images[0].url) {
-          $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(' + results.items[0].images[0].url + ')')
+        if (results.items[0].images.length > 0) {
+          if (results.items[0].images[0].url) {
+            $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(' + results.items[0].images[0].url + ')')
+          } else {
+            $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+          }
         } else {
           $("div[data-id='image-" + results.items[0].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
         }
@@ -290,8 +294,12 @@ const displaySpotify = (results) => {
       }
       // if image 2 exists, add it, else add stock image
       if (results.items[1].images) {
-        if (results.items[1].images[0].url) {
-          $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(' + results.items[1].images[0].url + ')')
+        if (results.items[1].images.length > 0) {
+          if (results.items[1].images[0].url) {
+            $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(' + results.items[1].images[0].url + ')')
+          } else {
+            $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+          }
         } else {
           $("div[data-id='image-" + results.items[1].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
         }
@@ -300,8 +308,12 @@ const displaySpotify = (results) => {
       }
       // if image 3 exists, add it, else add stock image
       if (results.items[2].images) {
-        if (results.items[2].images[0].url) {
-          $("div[data-id='image-" + results.items[2].id + "']").css('background-image', 'url(' + results.items[2].images[0].url + ')')
+        if (results.items[2].images.length > 0) {
+          if (results.items[2].images[0].url) {
+            $("div[data-id='image-" + results.items[2].id + "']").css('background-image', 'url(' + results.items[2].images[0].url + ')')
+          } else {
+            $("div[data-id='image-" + results.items[2].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
+          }
         } else {
           $("div[data-id='image-" + results.items[2].id + "']").css('background-image', 'url(https://imgur.com/pagisEC.png)')
         }
