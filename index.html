@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+      <title>Fin</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Title icon -->
+      <!-- <link rel="shortcut icon" type="image/png" href="https://imgur.com/K94ugKV.png" /> -->
+      <!-- <link rel="shortcut icon" type="image/png" href="https://imgur.com/8F9oCdX.png" /> -->
+      <link rel="shortcut icon" type="image/png" href="https://imgur.com/JFelPRN.png" />
+      <!-- Landing Header Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Amatic+SC|East+Sea+Dokdo|Gaegu|Gugi|Julius+Sans+One|Libre+Barcode+39+Extended+Text|Libre+Barcode+39+Text|Passion+One|Poiret+One|Righteous|Sacramento" rel="stylesheet">
+      <!-- Body fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat|Tajawal" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i|Roboto+Mono:400,400i|Roboto:400,400i|Source+Code+Pro|Warnes" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|Holtwood+One+SC|Krona+One|Titan+One" rel="stylesheet">
+      <!-- Font-Awesome -->
+      <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+      <!-- animate.css -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+      <!-- Scripts -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body>
+
+      <!-- Static Nav - Start - ********************************************************** -->
+      <div id="static-nav">
+        <nav class="navbar navbar-default static-nav">
+          <div class="container-fluid">
+           <div class="navbar-header">
+             <a class="navbar-brand" href="#">Fin <i class="far fa-comment mini-comment-bubble"></i></a>
+           </div>
+           <div id="navbar" class="navbar-collapse collapse">
+             <ul class="nav navbar-nav navbar-right">
+               <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span id="user-email-dropdown">Placeholder</span> <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li class="profile-li" id="profile-li"><a href="#">Profile</a></li>
+                   <li class="edit-pwd-li" id="edit-pwd-li"><a href="#">Edit Password</a></li>
+                   <li class="sign-out-li" id="sign-out-li"><a href="#">Sign Out</a></li>
+                 </ul>
+               </li>
+             </ul>
+           </div>
+         </div>
+        </nav>
+      </div>
+      <!-- Static Nav - End - ************************************************************ -->
+
+      <!-- Landing Page - Start - ******************************************************** -->
+      <div class="landing-wrapper" id="landing-wrapper">
+        <i class="far fa-comment comment-bubble animation-delay animated bounceInRight"></i>
+        <h1 class="landing-header" id="landing-header">Fin</h1>
+        <!-- <button class="proceed-button animation-delay animated bounceInLeft" id="proceed-button" data-toggle="modal" data-target="#log-in-modal">Proceed</button> -->
+        <button class="proceed-button" id="proceed-button" data-toggle="modal" data-target="#log-in-modal">Proceed</button>
+      </div>
+      <!-- Landing Page - End - ********************************************************** -->
+
+      <!-- Chat View - Start - *********************************************************** -->
+      <div class="chat-view-wrapper" id="chat-view-wrapper">
+        <div class="row">
+          <div class="col-xs-1 empty-space"></div>
+          <div class="col-xs-10 content-column">
+            <div class="row">
+              <div class="messages-wrapper col-xs-12" id="messagesWrapper">
+                <ul id="messagesUL" class="messages-ul"></ul>
+              </div>
+            </div>
+            <div class="row">
+              <form class="chat-input-form" id="chatInputForm" action="">
+                <input class="chat-input col-xs-10" id="chatInput" autocomplete="off" />
+                <button class="chat-input-button col-xs-2" id="chat-input-button">Send</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-xs-1 empty-space"></div>
+        </div>
+      </div>
+      <!-- Chat View - End - ************************************************************* -->
+
+      <!-- Other View - Start - ********************************************************** -->
+      <!-- Other View - End - ************************************************************ -->
+
+      <!-- Other View - Start - ********************************************************** -->
+      <!-- Other View - End - ************************************************************ -->
+
+      <!-- Other View - Start - ********************************************************** -->
+      <!-- Other View - End - ************************************************************ -->
+
+      <!-- Static Footer - Start - ******************************************************* -->
+      <footer id="footer" class="footer"></footer>
+      <!-- Static Footer - End - ********************************************************* -->
+
+      <!-- Modals - Start - ************************************************************** -->
+
+      <!-- Log-In Modal - Start -->
+      <div class="modal fade" id="log-in-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content log-in-modal-content" id="log-in-modal-content">
+            <!-- Log-In Content -->
+            <div id="log-in-content-wrapper">
+              <!-- Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Log In</h4>
+              </div>
+              <!-- Start form for log-in modal-->
+              <div class="modal-body">
+                <form class="form-horizontal" id="log-in-form">
+                    <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="text" class="form-control" id="inputEmail1" name="credentials[email]" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="password" class="form-control" id="inputPassword1" name="credentials[password]" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="register-toggle" id="log-in-modal-register-toggle-button">Register?</div>
+              </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <!-- <button class="btn btn-default modal-button register-toggle" id="log-in-modal-register-toggle-button">Register?</button> -->
+                      <button type="submit" class="btn btn-default modal-button" id="log-in-modal-submit-button">Proceed</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+              <!-- Register Content -->
+              <div id="register-content-wrapper">
+                <!-- Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Register</h4>
+                </div>
+                <!-- Start form for Register modal-->
+                <div class="modal-body">
+                  <form class="form-horizontal" id="register-form">
+                      <div class="form-group">
+                      <div class="input-div col-sm-12">
+                        <input type="text" class="form-control" id="inputEmail2" name="credentials[email]" placeholder="Email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-div col-sm-12">
+                        <input type="password" class="form-control" id="inputPassword2" name="credentials[password]" placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-div col-sm-12">
+                        <input type="password" class="form-control" id="inputPassword3" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                      </div>
+                    </div>
+                    <div class="register-toggle" id="register-modal-log-in-toggle-button">Log In?</div>
+                </div>
+                  <!-- Footer -->
+                  <div class="modal-footer">
+                    <div class="form-group">
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <!-- <button class="btn btn-default modal-button register-toggle" id="register-modal-log-in-toggle-button">Log In?</button> -->
+                        <button type="submit" class="btn btn-default modal-button" id="register-submit-button">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                  </div>
+                </div>
+              <!-- End Content -->
+            </div>
+          </div>
+        </div>
+      <!-- Log-In Modal - End -->
+
+      <!-- Profile Build Modal - Start -->
+      <div class="modal fade" id="profile-build-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content profile-build-modal-content" id="profile-build-modal-content">
+            <!-- Log-In Content -->
+            <div id="profile-build-content-wrapper">
+              <!-- Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Build Profile</h4>
+              </div>
+              <!-- Start form for profile-build-modal -->
+              <div class="modal-body">
+                <form class="form-horizontal" id="profile-build-form">
+                    <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="text" class="form-control" id="inputUsername1" name="profile[userName]" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <!-- <input type="password" class="form-control" id="inputPhone1" name="profile[phone]" placeholder="Phone Number"> -->
+                      <input type="text" autocomplete='off' class="input-medium bfh-phone form-control" id="inputPhone1" name="profile[phone]" data-format="ddd-ddd-dddd" placeholder="Phone Number" data-toggle="tooltip" data-placement="bottom" title="In future iterations, providing Fin with your phone number will allow him to send you reminders." data-animation="true">
+                    </div>
+                  </div>
+              </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default modal-button" id="profile-build-modal-submit-button">Enter</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+              <!-- End Content -->
+            </div>
+          </div>
+        </div>
+      <!-- Profile Build Modal - End -->
+
+      <!-- Edit Profile Modal - Start -->
+      <div class="modal fade" id="edit-profile-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content edit-profile-modal-content" id="edit-profile-modal-content">
+            <!-- edit profile Content -->
+            <div id="profile-edit-content-wrapper">
+              <!-- Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Edit Profile</h4>
+              </div>
+              <!-- Start form for edit-profile-modal -->
+              <div class="modal-body">
+                <form class="form-horizontal" id="profile-edit-form">
+                    <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="text" class="form-control" id="inputUsername20" name="profile[userName]" placeholder="Username">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <!-- <input type="password" class="form-control" id="inputPhone1" name="profile[phone]" placeholder="Phone Number"> -->
+                      <input type="text" autocomplete='off' class="input-medium bfh-phone form-control" id="inputPhone20" name="profile[phone]" data-format="ddd-ddd-dddd" placeholder="Phone Number">
+                    </div>
+                  </div>
+              </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="button" class="btn btn-default modal-button delete-button" id="edit-profile-delete" data-toggle="tooltip" data-placement="bottom" title="Your profile is necessary to interact with Fin. If you delete it, you will be logged out." data-animation="true">Delete</button>
+                      <button type="submit" class="btn btn-default modal-button" id="edit-profile-modal-submit-button">Submit</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+              <!-- End Content -->
+            </div>
+          </div>
+        </div>
+      <!-- Edit Profile Modal - End -->
+
+      <!-- Change Password Modal - Start -->
+      <div class="modal fade" id="change-pwd-modal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content change-pwd-modal-content" id="change-pwd-modal-content">
+            <!-- Change-Pwd Content -->
+            <div id="change-pwd-content-wrapper">
+              <!-- Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Change Password</h4>
+              </div>
+              <!-- Start form for change-pwd-modal -->
+              <div class="modal-body">
+                <form class="form-horizontal" id="change-pwd-form">
+                    <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="password" class="form-control" id="inputPassword10" name="passwords[old]" placeholder="Current Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-div col-sm-12">
+                      <input type="password" class="form-control" id="inputPassword11" name="passwords[new]" placeholder="New Password">
+                    </div>
+                  </div>
+              </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default modal-button" id="change-pwd-modal-submit-button">Change Password</button>
+                    </div>
+                  </div>
+                </form>
+                </div>
+              </div>
+              <!-- End Content -->
+            </div>
+          </div>
+        </div>
+      <!-- Change Password Modal - End -->
+
+      <!-- Modals - End - **************************************************************** -->
+
+    </body>
+
+</html>
