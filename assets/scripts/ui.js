@@ -506,7 +506,7 @@ const displayGreeting = (name) => {
         <br>
         <span class="list-number"><i class="fas fa-cog"></i></span> Sending messages
         <br>
-        <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
+        <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on today's weather
         <br>
         <span class="list-number"><i class="fas fa-cog"></i></span> Providing playlist recommendations
         <br>
@@ -551,7 +551,7 @@ const displaySkills = () => {
       <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Sending messages
       <br>
-      <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on the weather
+      <span class="list-number"><i class="fas fa-cog"></i></span> Reporting on today's weather
       <br>
       <span class="list-number"><i class="fas fa-cog"></i></span> Providing playlist recommendations
       <br>
